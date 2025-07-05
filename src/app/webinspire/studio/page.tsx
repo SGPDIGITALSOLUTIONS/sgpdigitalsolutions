@@ -7,6 +7,9 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { Tier, Layout, ColorPreset, UploadedFile, TierLimits, StudioStep } from '../types';
 import './background.css';
 
+// Force dynamic rendering for this page
+export const dynamic = 'force-dynamic';
+
 const inter = Inter({ subsets: ['latin'] });
 
 // Mock data for layouts
