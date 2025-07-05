@@ -1,7 +1,7 @@
 'use client';
 
 import { Inter } from 'next/font/google';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, Suspense } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Tier, Layout, ColorPreset, UploadedFile, TierLimits, StudioStep } from '../types';
@@ -73,7 +73,7 @@ const TIER_LIMITS: TierLimits = {
   }
 };
 
-export default function WebInspireStudio() {
+function WebInspireStudioContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
@@ -482,4 +482,12 @@ export default function WebInspireStudio() {
       </main>
     </div>
   );
-} 
+}
+
+export default function WebInspireStudio() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black text-white flex items-center justify-center">Loading...</div>}>
+      <WebInspireStudioContent />
+    </Suspense>
+  );
+}
