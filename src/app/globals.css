@@ -1,0 +1,442 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cyberpunk Neobrutalism Color System */
+  --terminal-black: #000000;
+  --terminal-dark: #0a0a0a;
+  --terminal-grey: #1a1a1a;
+  --terminal-border: #2a2a2a;
+  --terminal-white: #ffffff;
+  --terminal-green: #00ff88;
+  --terminal-green-bright: #00ffaa;
+  --terminal-green-dark: #00cc66;
+  --terminal-cyan: #00ffff;
+  --terminal-blue: #0088ff;
+  --terminal-purple: #8844ff;
+  --terminal-pink: #ff44aa;
+  --terminal-yellow: #ffff00;
+  --terminal-red: #ff4444;
+
+  /* Design Tokens */
+  --neo-border-width: 3px;
+  --neo-border-radius: 4px;
+  --neo-shadow-offset: 4px;
+  --neo-transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* CSS Variables for theming */
+  --background: var(--terminal-black);
+  --foreground: var(--terminal-white);
+  --primary: var(--terminal-green);
+  --primary-hover: var(--terminal-green-bright);
+  --secondary: var(--terminal-cyan);
+  --secondary-hover: var(--terminal-blue);
+  --accent: var(--terminal-green);
+  --muted: var(--terminal-grey);
+  --border: var(--terminal-white);
+  --card: var(--terminal-dark);
+  --card-foreground: var(--terminal-white);
+  --radius: var(--neo-border-radius);
+}
+
+@layer base {
+  * {
+    @apply border-terminal-white;
+  }
+
+  body {
+    @apply bg-terminal-black text-terminal-white font-terminal-sans;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    background-image: 
+      linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px;
+  }
+
+  /* Typography with Cyberpunk Neobrutalism */
+  h1 {
+    @apply text-4xl md:text-7xl font-black tracking-tight leading-none font-terminal-mono uppercase;
+    color: var(--terminal-white);
+    text-shadow: 
+      2px 2px 0px var(--terminal-black),
+      0 0 10px rgba(0, 255, 136, 0.5);
+    letter-spacing: 0.05em;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl font-black tracking-tight leading-tight font-terminal-mono uppercase;
+    color: var(--terminal-green);
+    text-shadow: 
+      2px 2px 0px var(--terminal-black),
+      0 0 8px rgba(0, 255, 136, 0.6);
+  }
+
+  h3 {
+    @apply text-2xl md:text-4xl font-bold tracking-tight leading-tight font-terminal-mono uppercase;
+    color: var(--terminal-white);
+    text-shadow: 1px 1px 0px var(--terminal-black);
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-bold tracking-wide uppercase font-terminal-mono;
+    color: var(--terminal-green);
+  }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed font-terminal-sans;
+    color: var(--terminal-white);
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-terminal-green ring-offset-2 ring-offset-terminal-black;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+  }
+}
+
+@layer components {
+  /* Container */
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Neo Terminal Button System */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           text-base font-bold tracking-wide uppercase font-terminal-mono
+           border-3 border-terminal-white rounded-terminal bg-terminal-black
+           transition-all duration-200 ease-terminal text-terminal-white
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terminal-green
+           disabled:pointer-events-none disabled:opacity-50;
+    box-shadow: 4px 4px 0px 0px var(--terminal-white);
+    transform: translate(0, 0);
+  }
+
+  .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px var(--terminal-white);
+    background: var(--terminal-grey);
+  }
+
+  .btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px 0px var(--terminal-white);
+  }
+
+  .btn-primary {
+    @apply bg-terminal-green text-terminal-black border-terminal-black;
+    box-shadow: 4px 4px 0px 0px var(--terminal-black);
+    text-shadow: none;
+  }
+
+  .btn-primary:hover {
+    @apply bg-terminal-green-bright;
+    box-shadow: 6px 6px 0px 0px var(--terminal-black);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .btn-primary:active {
+    box-shadow: 2px 2px 0px 0px var(--terminal-black);
+  }
+
+  .btn-secondary {
+    @apply bg-terminal-cyan text-terminal-black border-terminal-black;
+    box-shadow: 4px 4px 0px 0px var(--terminal-black);
+  }
+
+  .btn-secondary:hover {
+    @apply bg-terminal-blue;
+    box-shadow: 6px 6px 0px 0px var(--terminal-black);
+  }
+
+  .btn-secondary:active {
+    box-shadow: 2px 2px 0px 0px var(--terminal-black);
+  }
+
+  .btn-accent {
+    @apply bg-terminal-black text-terminal-green border-terminal-green;
+    box-shadow: 4px 4px 0px 0px var(--terminal-green);
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+  }
+
+  .btn-accent:hover {
+    @apply bg-terminal-grey;
+    box-shadow: 6px 6px 0px 0px var(--terminal-green);
+  }
+
+  .btn-accent:active {
+    box-shadow: 2px 2px 0px 0px var(--terminal-green);
+  }
+
+  .btn-outline {
+    @apply bg-terminal-black text-terminal-white border-terminal-white;
+  }
+
+  .btn-outline:hover {
+    @apply bg-terminal-grey;
+  }
+
+  /* Neo Terminal Card System */
+  .card {
+    @apply bg-terminal-dark border-3 border-terminal-white rounded-neo p-6
+           transition-all duration-200 ease-terminal text-terminal-white;
+    box-shadow: 4px 4px 0px 0px var(--terminal-white);
+    transform: translate(0, 0);
+  }
+
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px var(--terminal-white);
+  }
+
+  .card-green {
+    @apply bg-terminal-black border-terminal-green;
+    box-shadow: 4px 4px 0px 0px var(--terminal-green);
+  }
+
+  .card-green:hover {
+    box-shadow: 6px 6px 0px 0px var(--terminal-green);
+  }
+
+  .card-cyan {
+    @apply bg-terminal-black border-terminal-cyan;
+    box-shadow: 4px 4px 0px 0px var(--terminal-cyan);
+  }
+
+  .card-cyan:hover {
+    box-shadow: 6px 6px 0px 0px var(--terminal-cyan);
+  }
+
+  .card-purple {
+    @apply bg-terminal-black border-terminal-purple;
+    box-shadow: 4px 4px 0px 0px var(--terminal-purple);
+  }
+
+  .card-purple:hover {
+    box-shadow: 6px 6px 0px 0px var(--terminal-purple);
+  }
+
+  .card-pink {
+    @apply bg-terminal-black border-terminal-pink;
+    box-shadow: 4px 4px 0px 0px var(--terminal-pink);
+  }
+
+  .card-pink:hover {
+    box-shadow: 6px 6px 0px 0px var(--terminal-pink);
+  }
+
+  /* Neo Terminal Input System */
+  .input {
+    @apply flex h-12 w-full bg-terminal-black border-3 border-terminal-white 
+           rounded-terminal px-4 py-3 text-lg font-medium font-terminal-mono
+           transition-all duration-200 ease-terminal text-terminal-white
+           placeholder:text-terminal-white/60
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terminal-green
+           disabled:cursor-not-allowed disabled:opacity-50;
+    box-shadow: 2px 2px 0px 0px var(--terminal-white);
+  }
+
+  .input:focus {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px 0px var(--terminal-white);
+    border-color: var(--terminal-green);
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+  }
+
+  /* Terminal Badge System */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider
+           bg-terminal-green text-terminal-black border-2 border-terminal-black rounded-terminal font-terminal-mono;
+    box-shadow: 2px 2px 0px 0px var(--terminal-black);
+  }
+
+  /* Section Headers */
+  .section-header {
+    @apply text-center mb-16 relative;
+  }
+
+  .section-header::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-terminal-green;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+  }
+
+  .section-title {
+    @apply text-4xl md:text-6xl font-black mb-4 font-terminal-mono uppercase;
+    color: var(--terminal-green);
+    text-shadow: 
+      2px 2px 0px var(--terminal-black),
+      0 0 15px rgba(0, 255, 136, 0.8);
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-terminal-white max-w-2xl mx-auto font-terminal-sans;
+  }
+
+  /* Terminal Navigation */
+  .nav-link {
+    @apply text-terminal-white font-bold text-base transition-all duration-200 font-terminal-mono uppercase tracking-wide
+           hover:text-terminal-green hover:scale-105;
+  }
+
+  .nav-link:hover {
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+
+  .stat-card {
+    @apply card text-center p-8 border-terminal-green;
+    box-shadow: 4px 4px 0px 0px var(--terminal-green);
+  }
+
+  .stat-card:hover {
+    box-shadow: 6px 6px 0px 0px var(--terminal-green);
+  }
+
+  .stat-number {
+    @apply text-5xl md:text-7xl font-black mb-3 font-terminal-mono;
+    color: var(--terminal-green);
+    text-shadow: 
+      2px 2px 0px var(--terminal-black),
+      0 0 15px rgba(0, 255, 136, 0.9);
+  }
+
+  .stat-label {
+    @apply text-sm font-bold uppercase tracking-wide font-terminal-mono;
+    color: var(--terminal-white);
+  }
+
+  /* Hero Section */
+  .hero-title {
+    @apply text-6xl md:text-9xl font-black leading-none mb-8 font-terminal-mono uppercase;
+    color: var(--terminal-white);
+    text-shadow: 
+      3px 3px 0px var(--terminal-black),
+      0 0 20px rgba(0, 255, 136, 0.6);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-xl text-terminal-white mb-10 max-w-2xl font-terminal-sans;
+  }
+
+  /* Terminal Grid Lines */
+  .terminal-section {
+    @apply relative;
+  }
+
+  .terminal-section::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-px bg-terminal-green opacity-30;
+  }
+
+  .terminal-section::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-terminal-green opacity-30;
+  }
+
+  /* Utility Classes */
+  .neo-terminal-element {
+    @apply border-3 border-terminal-white rounded-neo transition-all duration-200 ease-terminal bg-terminal-black;
+    box-shadow: 4px 4px 0px 0px var(--terminal-white);
+  }
+
+  .neo-terminal-element:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px var(--terminal-white);
+  }
+
+  .neo-terminal-element:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px 0px var(--terminal-white);
+  }
+
+  .terminal-glow {
+    animation: terminal-glow 2s ease-in-out infinite alternate;
+  }
+
+  .wiggle:hover {
+    @apply animate-neo-wiggle;
+  }
+
+  .bounce:hover {
+    @apply animate-neo-bounce;
+  }
+
+  /* Terminal Window Effect */
+  .terminal-window {
+    @apply bg-terminal-black border-3 border-terminal-green rounded-neo p-6;
+    box-shadow: 
+      4px 4px 0px 0px var(--terminal-green),
+      0 0 20px rgba(0, 255, 136, 0.3);
+    position: relative;
+  }
+
+  .terminal-window::before {
+    content: '● ● ●';
+    @apply absolute top-2 left-4 text-terminal-green text-xs;
+  }
+
+  .terminal-text {
+    @apply font-terminal-mono text-terminal-green leading-relaxed;
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+  }
+}
+
+/* Custom Animations */
+@keyframes gradient-shift {
+  0% { 
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
+  50% { 
+    text-shadow: 0 0 30px rgba(0, 255, 136, 1), 0 0 40px rgba(0, 255, 255, 0.5);
+  }
+  100% { 
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
+}
+
+@keyframes terminal-scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terminal-black);
+  border: 2px solid var(--terminal-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terminal-green);
+  border: 2px solid var(--terminal-black);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-green-bright);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+/* Selection styles */
+::selection {
+  background: var(--terminal-green);
+  color: var(--terminal-black);
+  text-shadow: none;
+}
