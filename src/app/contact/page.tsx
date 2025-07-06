@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Header from "@/components/Header";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -59,7 +60,10 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-20">
+    <div className="min-h-screen bg-terminal-black">
+      {/* Header */}
+      <Header />
+      
       {/* Hero Section */}
       <section className="bg-[#1a365d] text-white py-20">
         <div className="container mx-auto px-4">

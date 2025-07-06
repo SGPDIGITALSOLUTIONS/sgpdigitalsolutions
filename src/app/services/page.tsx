@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Header from "@/components/Header";
 
 const services = [
   {
@@ -67,7 +68,10 @@ const process = [
 
 export default function ServicesPage() {
   return (
-    <div className="py-20">
+    <div className="min-h-screen bg-terminal-black">
+      {/* Header */}
+      <Header />
+      
       {/* Hero Section */}
       <section className="bg-[#1a365d] text-white py-20">
         <div className="container mx-auto px-4">
