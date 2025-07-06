@@ -40,9 +40,9 @@ const services = [
 
 const testimonials = [
   {
-    name: "SARAH CHEN",
-    company: "BLOOM BAKERY",
-    text: "SGP transformed our online presence completely. Sales increased by 300% in just 3 months!",
+    name: "TONY WING",
+    company: "VISION CARE FOR HOMELESS PEOPLE",
+    text: "Collaborating with Steve has been transformative for our charity. His expertise in technology and automation has not only streamlined our workflows but also uncovered opportunities for efficiencies in our operation not previously considered. From implementing online booking to automating numerous repetitive tasks, Steve has consistently delivered high quality solutions with clear communication and quick turnaround times. Steve possesses a natural aptitude for problem-solving and diligently seeks appropriate solutions to any challenges he encounters. Beyond his technical proficiency, Steve demonstrates proactive, reliable, people-centric, and a profound understanding of how technology aligns with our objectives. His approach has resulted in significant time savings and a marked improvement in the engagement of our volunteers. I wholeheartedly recommend Steve to those seeking to incorporate intelligent automation solutions and innovation into their business.",
     color: "bg-terminal-black border-terminal-green"
   },
   {
@@ -208,10 +208,10 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-8 text-terminal-white font-terminal-mono uppercase">OR CONNECT DIRECTLY:</h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="outline" size="lg" className="terminal-glow font-terminal-mono">
-                📧 HELLO@SGPDIGITAL.COM
+                📧 HELLO@SGPDIGITALSOLUTIONS.CO.UK
               </Button>
               <Button variant="outline" size="lg" className="terminal-glow font-terminal-mono">
-                📱 (555) 123-4567
+                📱 07516735792
               </Button>
             </div>
           </div>
