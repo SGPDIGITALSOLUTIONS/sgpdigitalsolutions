@@ -46,15 +46,14 @@ const testimonials = [
     color: "bg-terminal-black border-terminal-green"
   },
   {
-    name: "MIKE RODRIGUEZ", 
-    company: "RODRIGUEZ CONSTRUCTION",
-    text: "The custom project management tool they built saves us 15 hours per week. Game changer!",
+    name: "NATASHA HUDSON", 
+    company: "HUDSON DIGITAL BUSINESS SOLUTIONS",
+    text: "Working with Steve at SGP Digital Solution was a dream. He took my old website as inspiration and completely transformed it into a modern, sleek, and professional site that truly reflects my brand. He was patient, collaborative, and full of creative ideas I hadn’t even considered. I felt heard and supported throughout the process, and I’m absolutely thrilled with the result.",
     color: "bg-terminal-black border-terminal-cyan"
   },
   {
-    name: "EMMA THOMPSON",
-    company: "THOMPSON LAW FIRM", 
-    text: "Professional, responsive, and delivered exactly what we needed. Highly recommend!",
+    name: "LANA",
+    text: "I had all my childrens baby photos saved on a laptop which had been broken for years, I also had lost the password for it as it had been so long. Steve managed to get my photos back aswell as fix my laptop and reinstall windows, I now have a working laptop again!",
     color: "bg-terminal-black border-terminal-purple"
   }
 ]
