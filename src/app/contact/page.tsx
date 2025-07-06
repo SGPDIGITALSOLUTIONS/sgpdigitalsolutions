@@ -150,28 +150,6 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label
-                    htmlFor="service"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Service Interested In
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1a365d] focus:border-transparent"
-                    required
-                    disabled={isSubmitting}
-                  >
-                    <option value="">Select a service</option>
-                    <option value="webstudio">SGP WebStudio</option>
-                    <option value="workflow">SGP WorkFlow</option>
-                    <option value="digital">Digital Solutions</option>
-                  </select>
-                </div>
-                <div>
-                  <label
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
@@ -205,19 +183,7 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-[#1a365d]">Email</h3>
-                <p className="text-gray-600">contact@sgpdigital.com</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-[#1a365d]">Phone</h3>
-                <p className="text-gray-600">+1 (555) 123-4567</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-[#1a365d]">Address</h3>
-                <p className="text-gray-600">
-                  123 Digital Way<br />
-                  Tech City, TC 12345<br />
-                  United States
-                </p>
+                <p className="text-gray-600">mailto:hello@sgpdigitalsolutions.co.uk</p>
               </div>
             </div>
           </div>

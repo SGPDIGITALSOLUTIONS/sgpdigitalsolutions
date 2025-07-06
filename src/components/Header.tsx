@@ -16,7 +16,7 @@ export default function Header() {
             className="text-2xl font-black text-terminal-white hover:text-terminal-green transition-all duration-200 font-terminal-mono uppercase tracking-wider terminal-glow"
             style={{ textShadow: '2px 2px 0px #000000, 0 0 10px rgba(0, 255, 136, 0.6)' }}
           >
-            SGP.DIGITAL
+            SGP.DIGITAL.SOLUTIONS
           </Link>
 
           {/* Desktop Navigation */}
