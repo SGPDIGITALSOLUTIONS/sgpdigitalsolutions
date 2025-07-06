@@ -33,12 +33,11 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title max-w-5xl">
-            SMART WEBSITES &<br/>EFFICIENT SYSTEMS
+            SGP DIGITAL<br/>SOLUTIONS
           </h1>
           
           <p className="hero-subtitle mx-auto">
-            Transform your business with our comprehensive digital solutions.<br/>
-            We build modern, scalable applications that drive real results.
+            We find solutions for people who do the real work!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 mb-16">
