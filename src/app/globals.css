@@ -387,6 +387,23 @@
     @apply font-terminal-mono text-terminal-green leading-relaxed;
     text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
   }
+
+  /* Testimonial Text Truncation */
+  .testimonial-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    max-height: 9rem; /* 6 lines × 1.5rem line-height */
+    transition: all 0.3s ease-out;
+  }
+
+  .group:hover .testimonial-text {
+    -webkit-line-clamp: none;
+    max-height: none;
+    overflow: visible;
+  }
 }
 
 /* Custom Animations */

@@ -161,10 +161,10 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className={`${testimonial.color} border-3 rounded-neo p-8 shadow-neo hover:shadow-neo-hover hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200`}
+                className={`${testimonial.color} border-3 rounded-neo p-8 shadow-neo hover:shadow-neo-hover hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-300 h-80 hover:h-auto overflow-hidden hover:overflow-visible group flex flex-col`}
               >
-                <p className="text-lg mb-6 font-medium text-terminal-white font-terminal-sans">"{testimonial.text}"</p>
-                <div className="border-t-3 border-terminal-white pt-4">
+                <p className="text-lg mb-6 font-medium text-terminal-white font-terminal-sans testimonial-text">"{testimonial.text}"</p>
+                <div className="border-t-3 border-terminal-white pt-4 mt-auto">
                   <p className="font-bold text-lg text-terminal-white font-terminal-mono">{testimonial.name}</p>
                   <p className="text-terminal-green font-terminal-mono text-sm">{testimonial.company}</p>
                 </div>
