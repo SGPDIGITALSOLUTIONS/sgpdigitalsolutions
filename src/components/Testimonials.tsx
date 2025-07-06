@@ -4,15 +4,21 @@ import { useState } from 'react';
 
 const testimonials = [
   {
-    quote: "SGP Digital transformed our online presence completely. Their team was professional and delivered beyond our expectations.",
-    author: "Sarah Johnson",
-    role: "CEO, TechStart Inc.",
+    quote: `Collaborating with Steve has been transformative for our charity. His expertise in technology and automation has not only streamlined our workflows but also uncovered opportunities for efficiencies in our operation not previously considered.
+
+From implementing online booking to automating numerous repetitive tasks, Steve has consistently delivered high quality solutions with clear communication and quick turnaround times. Steve possesses a natural aptitude for problem-solving and diligently seeks appropriate solutions to any challenges he encounters.
+
+Beyond his technical proficiency, Steve demonstrates proactive, reliable, people-centric, and a profound understanding of how technology aligns with our objectives. His approach has resulted in significant time savings and a marked improvement in the engagement of our volunteers.
+
+I wholeheartedly recommend Steve to those seeking to incorporate technology solutions.`,
+    author: "Tony Wing",
+    role: "Vision Care for Homeless People",
     image: "/testimonials/sarah.jpg",
   },
   {
     quote: "The workflow automation solution they implemented has saved us countless hours and improved our efficiency dramatically.",
-    author: "Michael Chen",
-    role: "Operations Director, Global Solutions",
+    author: "Natasha Hudson",
+    role: "Hudson Virtual Business Solutions",
     image: "/testimonials/michael.jpg",
   },
   {
