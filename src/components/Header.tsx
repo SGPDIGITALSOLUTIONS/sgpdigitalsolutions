@@ -43,7 +43,7 @@ export default function Header() {
               href="/portfolio" 
               className="nav-link px-4 py-2 rounded-terminal border-2 border-transparent hover:border-terminal-pink hover:bg-terminal-grey transition-all duration-200"
             >
-              PORTFOLIO
+              CLIENTS
             </Link>
             <Link 
               href="/contact" 
@@ -105,7 +105,7 @@ export default function Header() {
               className="block nav-link py-3 px-4 rounded-terminal bg-terminal-black border-2 border-terminal-pink hover:bg-terminal-grey transition-all duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
-              PORTFOLIO
+              CLIENTS
             </Link>
             <Link
               href="/contact"

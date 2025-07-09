@@ -3,153 +3,234 @@ import Header from "@/components/Header";
 
 const services = [
   {
-    title: 'SGP WebStudio',
-    description: 'Professional website design and development services',
+    title: 'Website Building',
+    description: 'When your current website looks like it was designed in 2003... and not in a cool retro way',
     features: [
-      'Custom Website Design',
-      'E-commerce Solutions',
-      'Content Management Systems',
-      'Mobile Responsive Design',
-      'SEO Optimization',
-      'Website Maintenance',
+      'Your website takes longer to load than a Windows 95 startup',
+      'People squint at your site on mobile like they\'re reading hieroglyphics',
+      'You\'re still telling people to "visit your Facebook page" instead',
+      'Your contact form has been broken for 6 months and nobody told you',
+      'You DIY\'d it and now it looks like a ransom note',
+      'Competitors are stealing your customers with their fancy websites',
     ],
-    link: '/services/webstudio',
+    color: 'sgp-green',
+    bgColor: 'bg-sgp-green/10',
+    borderColor: 'border-sgp-green/20',
+    textColor: 'text-sgp-green',
+    category: 'Website Design',
   },
   {
-    title: 'SGP WorkFlow',
-    description: 'Business process automation and optimization',
+    title: 'Bespoke WebTools',
+    description: 'If you need a thing but that thing doesn\'t exist (yet)',
     features: [
-      'Process Automation',
-      'Workflow Optimization',
-      'Custom Software Development',
-      'Integration Services',
-      'Business Intelligence',
-      'Performance Monitoring',
+      'You\'ve searched Google for "tool to do X" and found nothing useful',
+      'You need a web app but it\'s too specific for anyone else to have built',
+      'Your team needs a shared tool that works in browsers',
+      'You want something custom but don\'t want to install software',
+      'You\'ve thought "someone should make a tool that..." more than once',
+      'You need a calculator/converter/generator that does exactly what YOU need',
     ],
-    link: '/services/workflow',
+    color: 'amber-500',
+    bgColor: 'bg-amber-500/10',
+    borderColor: 'border-amber-500/20',
+    textColor: 'text-amber-400',
+    category: 'Bespoke WebTools',
   },
   {
-    title: 'Digital Solutions',
-    description: 'Comprehensive digital transformation services',
+    title: 'Automation',
+    description: 'When you\'re copy-pasting data like it\'s your full-time job (because it basically is)',
     features: [
-      'Digital Strategy',
-      'Cloud Solutions',
-      'Data Analytics',
-      'Cybersecurity',
-      'IT Infrastructure',
-      'Digital Marketing',
+      'You\'re doing the same mind-numbing task 47 times a day',
+      'Your "system" is actually 12 different spreadsheets held together with hope',
+      'You know every keyboard shortcut but still feel like a robot',
+      'Your browser has 47 tabs open for "research" that\'s actually data entry',
+      'You dream about a magical button that just "does the thing"',
+      'You\'ve said "there has to be a better way" more than 10 times this week',
     ],
-    link: '/services/digital',
-  },
-];
-
-const process = [
-  {
-    step: 1,
-    title: 'Consultation',
-    description: 'We discuss your needs and goals to understand your requirements.',
+    color: 'red-500',
+    bgColor: 'bg-red-500/10',
+    borderColor: 'border-red-500/20',
+    textColor: 'text-red-400',
+    category: 'Automation',
   },
   {
-    step: 2,
-    title: 'Planning',
-    description: 'We create a detailed plan tailored to your business objectives.',
+    title: 'Integration',
+    description: 'When your software plays together about as well as cats and dogs',
+    features: [
+      'You\'re manually copying data between 5 different systems daily',
+      'Your team has a "system" that\'s actually just organized chaos',
+      'You\'re paying for software that doesn\'t talk to your other software',
+      'Someone\'s job is literally "data transfer specialist"',
+      'You have sticky notes with passwords for 12 different platforms',
+      'Your workflow looks like a Rube Goldberg machine',
+    ],
+    color: 'cyan-500',
+    bgColor: 'bg-cyan-500/10',
+    borderColor: 'border-cyan-500/20',
+    textColor: 'text-cyan-400',
+    category: 'Integration',
   },
   {
-    step: 3,
-    title: 'Implementation',
-    description: 'Our team executes the plan with precision and expertise.',
-  },
-  {
-    step: 4,
-    title: 'Launch',
-    description: 'We ensure a smooth launch and provide ongoing support.',
+    title: 'App Development',
+    description: 'For when you need something fancier than a website but less commitment than a relationship',
+    features: [
+      'Your customers keep asking "do you have an app for that?"',
+      'You want to be on phones but websites feel so... 2010',
+      'Your competition has an app and you\'re jealous',
+      'You need offline functionality (because WiFi isn\'t everywhere)',
+      'You want push notifications without being annoying',
+      'You dream of app store glory and passive income',
+    ],
+    color: 'sgp-green',
+    bgColor: 'bg-gradient-to-r from-sgp-green/20 to-sgp-green/10',
+    borderColor: 'border-sgp-green/30',
+    textColor: 'text-sgp-green',
+    category: 'App Development',
+    comingSoon: true,
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-terminal-black">
+    <div className="min-h-screen bg-black">
       {/* Header */}
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-[#1a365d] text-white py-20">
+      <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
-            Our Services
-          </h1>
-          <p className="text-xl text-center max-w-3xl mx-auto text-gray-300">
-            Comprehensive digital solutions to help your business thrive in the modern world.
-          </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-6xl font-bold text-white mb-6">
+              Our Services
+            </h1>
+            <p className="text-xl text-white/80 mb-12 leading-relaxed">
+              Comprehensive digital solutions to transform your business with cutting-edge technology and expert development.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Main Services */}
+      {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
-              >
-                <h2 className="text-2xl font-bold mb-4 text-[#1a365d]">
-                  {service.title}
-                </h2>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-3 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-600">
-                      <svg
-                        className="w-5 h-5 text-[#1a365d] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={service.link}
-                  className="inline-block bg-[#1a365d] text-white px-6 py-2 rounded-lg hover:bg-[#2d3748] transition-colors"
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`relative ${service.bgColor} rounded-xl border ${service.borderColor} p-8 hover:border-opacity-50 transition-all duration-300 group`}
                 >
-                  Learn More
-                </Link>
-              </div>
-            ))}
+                  {service.comingSoon && (
+                    <div className="absolute -top-3 -right-3 z-10">
+                      <span className="bg-sgp-green text-black px-3 py-1 rounded-full text-xs font-bold">
+                        Coming Soon
+                      </span>
+                    </div>
+                  )}
+                  
+                  <div className="mb-6">
+                    <h3 className={`text-2xl font-bold ${service.textColor} mb-3`}>
+                      {service.title}
+                    </h3>
+                    <p className="text-white/70 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="text-white font-semibold mb-3">You Know You Need This If:</h4>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start text-white/70">
+                          <svg
+                            className={`w-4 h-4 ${service.textColor} mr-2 mt-0.5 flex-shrink-0`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <Link
+                      href={`/portfolio?category=${encodeURIComponent(service.category)}`}
+                      className={`flex-1 text-center px-4 py-2 ${service.textColor} border ${service.borderColor} rounded-full hover:bg-white/5 transition-colors text-sm font-medium`}
+                    >
+                      View Client Work
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="flex-1 text-center px-4 py-2 bg-sgp-green text-black rounded-full hover:bg-sgp-green/90 transition-colors text-sm font-medium"
+                    >
+                      Get Started
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#1a365d]">
-            Our Process
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {process.map((step, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg p-6 text-center"
-              >
-                <div className="bg-[#1a365d] text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  {step.step}
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-12 text-center">
+              Our Development Process
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                {
+                  step: 1,
+                  title: 'Discovery',
+                  description: 'We analyze your needs and goals to understand your requirements.',
+                  icon: '🔍',
+                },
+                {
+                  step: 2,
+                  title: 'Planning',
+                  description: 'We create a detailed technical plan tailored to your objectives.',
+                  icon: '📋',
+                },
+                {
+                  step: 3,
+                  title: 'Development',
+                  description: 'Our team builds your solution with precision and expertise.',
+                  icon: '⚡',
+                },
+                {
+                  step: 4,
+                  title: 'Launch',
+                  description: 'We ensure a smooth launch and provide ongoing support.',
+                  icon: '🚀',
+                },
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  className="bg-black/40 rounded-xl border border-white/10 p-6 text-center hover:border-sgp-green/30 transition-colors"
+                >
+                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <div className="bg-sgp-green text-black w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
+                    {step.step}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-white">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-[#1a365d]">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -157,19 +238,29 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="bg-[#1a365d] rounded-lg text-white p-12 text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-              Let's discuss how our services can help you achieve your goals.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-white text-[#1a365d] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Get Started
-            </Link>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-black/40 rounded-xl border border-white/10 p-12">
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Ready to Transform Your Business?
+              </h2>
+              <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+                Let's discuss how our services can help you achieve your goals with cutting-edge technology solutions.
+              </p>
+              <div className="flex justify-center gap-4 flex-wrap">
+                <Link
+                  href="/contact"
+                  className="px-8 py-3 bg-sgp-green text-black font-medium rounded-full hover:bg-sgp-green/90 transition-colors"
+                >
+                  Get Started
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="px-8 py-3 border border-sgp-green text-sgp-green font-medium rounded-full hover:bg-sgp-green hover:text-black transition-colors"
+                >
+                  View Our Clients
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
