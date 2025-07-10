@@ -13,7 +13,8 @@ const workCategories = [
   'Bespoke WebTools',
   'Integration',
   'Automation',
-  'App Development'
+  'App Development',
+  'Other'
 ];
 
 const projects = [
@@ -62,6 +63,17 @@ const projects = [
     category: 'Automation',
     technologies: ['Python', 'Java', 'Selenium', 'BeautifulSoup', 'Pandas'],
   },
+  {
+    title: 'Lana - Personal Data Recovery',
+    clientDescription: 'A parent facing the heartbreaking loss of irreplaceable family memories - years of children\'s baby photos trapped on a broken laptop with a forgotten password. What seemed like lost memories became a successful recovery mission.',
+    projectDescription: 'Complete data recovery service including password bypass, hardware diagnostics, photo extraction, and full system restoration. Successfully recovered all precious family photos and provided a fully functional laptop with fresh Windows installation.',
+    image: '/portfolio/database-scrape-tool.png', // We'll use the same placeholder image for now
+    projectLink: '/portfolio/data-recovery',
+    websiteLink: null,
+    status: 'Completed',
+    category: 'Other',
+    technologies: ['Data Recovery Tools', 'Windows Installation', 'Hardware Diagnostics', 'Password Recovery'],
+  },
   // Add more projects here as needed
 ];
 
@@ -100,7 +112,8 @@ function PortfolioContent() {
       'Bespoke WebTools': { bg: 'bg-amber-500', text: 'text-white', hover: 'hover:bg-amber-600', border: 'border-amber-500' },
       'Integration': { bg: 'bg-cyan-500', text: 'text-white', hover: 'hover:bg-cyan-600', border: 'border-cyan-500' },
       'Automation': { bg: 'bg-red-500', text: 'text-white', hover: 'hover:bg-red-600', border: 'border-red-500' },
-      'App Development': { bg: 'bg-gradient-to-r from-sgp-green/20 to-sgp-green/10', text: 'text-sgp-green', hover: 'hover:from-sgp-green/30 hover:to-sgp-green/20', border: 'border-sgp-green/30' }
+      'App Development': { bg: 'bg-gradient-to-r from-sgp-green/20 to-sgp-green/10', text: 'text-sgp-green', hover: 'hover:from-sgp-green/30 hover:to-sgp-green/20', border: 'border-sgp-green/30' },
+      'Other': { bg: 'bg-purple-500', text: 'text-white', hover: 'hover:bg-purple-600', border: 'border-purple-500' }
     };
     return colorMap[category] || { bg: 'bg-gray-500', text: 'text-white', hover: 'hover:bg-gray-600', border: 'border-gray-500' };
   };
@@ -112,7 +125,8 @@ function PortfolioContent() {
       'Bespoke WebTools': { bg: 'bg-amber-500/10', text: 'text-amber-400' },
       'Integration': { bg: 'bg-cyan-500/10', text: 'text-cyan-400' },
       'Automation': { bg: 'bg-red-500/10', text: 'text-red-400' },
-      'App Development': { bg: 'bg-sgp-green/10', text: 'text-sgp-green' }
+      'App Development': { bg: 'bg-sgp-green/10', text: 'text-sgp-green' },
+      'Other': { bg: 'bg-purple-500/10', text: 'text-purple-400' }
     };
     return colorMap[category] || { bg: 'bg-gray-500/10', text: 'text-gray-400' };
   };
