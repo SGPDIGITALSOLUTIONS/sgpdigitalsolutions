@@ -69,10 +69,10 @@ export default function ContactPage() {
     },
     {
       icon: '📱',
-      title: 'Phone',
-      value: '07516735792',
-      link: 'tel:+447516735792',
-      description: 'Call us during business hours'
+              title: 'WhatsApp',
+        value: 'whatsapp me',
+        link: 'https://wa.me/447516735792',
+        description: 'Message us anytime'
     },
     {
       icon: '💬',
@@ -372,10 +372,10 @@ export default function ContactPage() {
                       📧 Email Us Direct
                     </a>
                     <a
-                      href="tel:+447516735792"
+                      href="https://wa.me/447516735792"
                       className="inline-flex items-center justify-center border border-sgp-green text-sgp-green px-6 py-3 rounded-lg font-medium hover:bg-sgp-green hover:text-black transition-colors"
                     >
-                      📱 Call Now
+                                              📱 WhatsApp Me
                     </a>
                   </div>
                 </div>

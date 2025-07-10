@@ -3,53 +3,32 @@ import Header from "@/components/Header"
 
 const values = [
   {
-    title: 'INNOVATION',
-    description: 'We constantly push boundaries to deliver cutting-edge solutions that transform businesses.',
-    icon: '⚡',
+    title: 'TRANSPARENCY',
+    description: 'No hidden costs, no surprise fees, no "we\'ll figure it out later." You know exactly what you\'re paying for and why.',
+    icon: '🔍',
     color: 'border-terminal-green'
   },
   {
-    title: 'EXCELLENCE',
-    description: 'We strive for excellence in everything we do, delivering only the highest quality work.',
-    icon: '🎯',
+    title: 'AFFORDABLE',
+    description: 'Good work shouldn\'t cost a fortune. We price fairly so businesses that actually need help can afford it.',
+    icon: '💰',
     color: 'border-terminal-cyan'
   },
   {
-    title: 'COLLABORATION',
-    description: 'We work closely with our clients as true partners to achieve exceptional results.',
-    icon: '🤝',
+    title: 'EFFICIENT',
+    description: 'We don\'t waste your time or ours. Quick turnarounds, clear communication, and solutions that work first time (or we will fix it for you).',
+    icon: '⚡',
     color: 'border-terminal-purple'
   },
   {
-    title: 'INTEGRITY',
-    description: 'We maintain the highest standards of professional integrity and transparency.',
-    icon: '🛡️',
+    title: 'HONEST',
+    description: 'If you don\'t need it, we won\'t build it. If there\'s a simpler solution, we\'ll tell you. No overselling, ever.',
+    icon: '🤝',
     color: 'border-terminal-pink'
   },
 ];
 
-const achievements = [
-  {
-    number: '100+',
-    label: 'PROJECTS COMPLETED',
-    color: 'text-terminal-green'
-  },
-  {
-    number: '50+',
-    label: 'HAPPY CLIENTS',
-    color: 'text-terminal-cyan'
-  },
-  {
-    number: '5+',
-    label: 'YEARS EXPERIENCE',
-    color: 'text-terminal-purple'
-  },
-  {
-    number: '24/7',
-    label: 'SUPPORT AVAILABLE',
-    color: 'text-terminal-pink'
-  }
-];
+
 
 export default function AboutPage() {
   return (
@@ -223,9 +202,10 @@ export default function AboutPage() {
               </h2>
               <div className="bg-terminal-dark border-3 border-terminal-green rounded-neo p-8 neo-terminal-element">
                 <p className="text-lg text-terminal-white font-terminal-sans leading-relaxed">
-                  To empower businesses with cutting-edge digital solutions that drive growth, 
-                  efficiency, and success in the modern digital landscape. We believe technology 
-                  should be accessible, powerful, and transformative for every business.
+                  To help businesses that actually need help, not just the ones with the biggest budgets. 
+                  We're here to solve problems for people who are too busy doing real work to wrestle with 
+                  clunky systems. No jargon, no nonsense, just tools that work so you can get back to 
+                  what you're good at.
                 </p>
               </div>
             </div>
@@ -237,9 +217,10 @@ export default function AboutPage() {
               </h2>
               <div className="bg-terminal-dark border-3 border-terminal-cyan rounded-neo p-8 neo-terminal-element">
                 <p className="text-lg text-terminal-white font-terminal-sans leading-relaxed">
-                  To become the go-to digital partner for businesses worldwide, known for 
-                  delivering innovative solutions that not only meet today's needs but 
-                  anticipate tomorrow's challenges.
+                  A world where "there must be an easier way" becomes "there is an easier way." 
+                  We're not trying to take over the world or make millions - we just want to be 
+                  the people you call when technology is being stupid and you need someone who 
+                  actually cares about fixing it properly.
                 </p>
               </div>
             </div>
@@ -278,87 +259,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Achievements */}
-      <section className="py-24 bg-terminal-dark terminal-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              ACHIEVEMENTS
-            </h2>
-            <p className="section-subtitle">
-              Numbers that speak for themselves
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <div
-                key={index}
-                className="bg-terminal-black border-3 border-terminal-white rounded-neo p-8 neo-terminal-element text-center"
-              >
-                <div className={`text-6xl md:text-8xl font-black mb-4 font-terminal-mono ${achievement.color}`}>
-                  {achievement.number}
-                </div>
-                <div className="text-sm font-bold uppercase tracking-wide text-terminal-white font-terminal-mono">
-                  {achievement.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-24 bg-terminal-black terminal-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              WHY CHOOSE US?
-            </h2>
-            <p className="section-subtitle">
-              What makes SGP Digital different
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-terminal-dark border-3 border-terminal-green rounded-neo p-8 neo-terminal-element text-center">
-              <div className="w-20 h-20 bg-terminal-green border-3 border-terminal-black rounded-terminal mx-auto mb-6 flex items-center justify-center text-2xl font-bold text-terminal-black">
-                ⚡
-              </div>
-              <h3 className="text-2xl font-bold mb-4 font-terminal-mono uppercase text-terminal-white">
-                LIGHTNING FAST
-              </h3>
-              <p className="text-lg text-terminal-white/80 font-terminal-sans">
-                We deliver projects on time, every time. No endless delays or excuses.
-              </p>
-            </div>
-
-            <div className="bg-terminal-dark border-3 border-terminal-cyan rounded-neo p-8 neo-terminal-element text-center">
-              <div className="w-20 h-20 bg-terminal-cyan border-3 border-terminal-black rounded-terminal mx-auto mb-6 flex items-center justify-center text-2xl font-bold text-terminal-black">
-                🎯
-              </div>
-              <h3 className="text-2xl font-bold mb-4 font-terminal-mono uppercase text-terminal-white">
-                QUALITY ASSURED
-              </h3>
-              <p className="text-lg text-terminal-white/80 font-terminal-sans">
-                We maintain the highest quality standards in every project we deliver.
-              </p>
-            </div>
-
-            <div className="bg-terminal-dark border-3 border-terminal-purple rounded-neo p-8 neo-terminal-element text-center">
-              <div className="w-20 h-20 bg-terminal-purple border-3 border-terminal-black rounded-terminal mx-auto mb-6 flex items-center justify-center text-2xl font-bold text-terminal-black">
-                🚀
-              </div>
-              <h3 className="text-2xl font-bold mb-4 font-terminal-mono uppercase text-terminal-white">
-                24/7 SUPPORT
-              </h3>
-              <p className="text-lg text-terminal-white/80 font-terminal-sans">
-                We're always here to help you succeed with ongoing support and maintenance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24 bg-terminal-grey terminal-section">
