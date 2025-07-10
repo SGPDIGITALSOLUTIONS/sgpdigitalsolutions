@@ -13,8 +13,8 @@ const workCategories = [
   'Bespoke WebTools',
   'Integration',
   'Automation',
-  'App Development',
-  'Other'
+  'Other',
+  'App Development'
 ];
 
 const projects = [
@@ -47,7 +47,7 @@ const projects = [
     projectDescription: 'Modern wellness website featuring earth-toned design, service showcase, and therapeutic approach presentation with focus on senior care and holistic wellbeing.',
     image: '/portfolio/heartwoodwellbeing.png',
     projectLink: '/portfolio/heartwood-wellbeing',
-    websiteLink: 'https://www.heartwoodwellbeing.co.uk',
+    websiteLink: 'https://heartwood-wellbeing.vercel.app/',
     status: 'In Development',
     category: 'Website Design',
     technologies: ['Astro', 'Tailwind CSS', 'TypeScript', 'React Components'],
