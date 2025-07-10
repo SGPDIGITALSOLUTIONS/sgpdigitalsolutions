@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from "@/components/Header";
 
@@ -65,7 +65,8 @@ const projects = [
   // Add more projects here as needed
 ];
 
-export default function PortfolioPage() {
+// Create a separate component for the search params logic
+function PortfolioContent() {
   const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
   const [selectedCategory, setSelectedCategory] = useState('All');
   const searchParams = useSearchParams();
@@ -117,24 +118,7 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black">
-      {/* Header */}
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-6xl font-bold text-white mb-6">
-              Our Clients
-            </h1>
-            <p className="text-xl text-white/80 mb-12 leading-relaxed">
-              Meet the amazing businesses we've had the privilege to work with. Discover their stories and see how we've helped them achieve their digital goals.
-            </p>
-          </div>
-        </div>
-      </section>
-
+    <>
       {/* Filter Section */}
       <section className="py-8">
         <div className="container mx-auto px-4">
@@ -318,6 +302,42 @@ export default function PortfolioPage() {
           )}
         </div>
       </section>
+    </>
+  );
+}
+
+export default function PortfolioPage() {
+  return (
+    <div className="min-h-screen bg-black">
+      {/* Header */}
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="pt-32 pb-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-6xl font-bold text-white mb-6">
+              Our Clients
+            </h1>
+            <p className="text-xl text-white/80 mb-12 leading-relaxed">
+              Meet the amazing businesses we've had the privilege to work with. Discover their stories and see how we've helped them achieve their digital goals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Wrap the component that uses useSearchParams in Suspense */}
+      <Suspense fallback={
+        <div className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <p className="text-white/60">Loading portfolio...</p>
+            </div>
+          </div>
+        </div>
+      }>
+        <PortfolioContent />
+      </Suspense>
     </div>
   );
 } 
