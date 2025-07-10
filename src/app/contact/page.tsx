@@ -26,19 +26,53 @@ export default function ContactPage() {
         </span>
       `;
 
+      // Try URL-encoded format first
+      const urlEncodedData = new URLSearchParams(formData as any).toString();
+      
       fetch("https://hooks.zapier.com/hooks/catch/23742018/u3n92gq/", {
         method: "POST",
-        body: formData
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: urlEncodedData
       })
-      .then(() => {
-        // Show success message on same page
-        if (formContainer && successMessage) {
-          formContainer.style.display = 'none';
-          successMessage.style.display = 'block';
+      .then(response => {
+        console.log('Response status:', response.status);
+        console.log('Response ok:', response.ok);
+        
+        if (response.ok || response.status === 200) {
+          // Show success message on same page
+          if (formContainer && successMessage) {
+            formContainer.style.display = 'none';
+            successMessage.style.display = 'block';
+          }
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
       })
-      .catch(() => {
-        alert("Something went wrong. Please try again.");
+      .catch(error => {
+        console.error('First attempt failed, trying FormData approach:', error);
+        
+        // Fallback: Try with FormData (no headers)
+        return fetch("https://hooks.zapier.com/hooks/catch/23742018/u3n92gq/", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => {
+          console.log('Fallback response status:', response.status);
+          if (response.ok || response.status === 200) {
+            if (formContainer && successMessage) {
+              formContainer.style.display = 'none';
+              successMessage.style.display = 'block';
+            }
+          } else {
+            throw new Error(`Fallback also failed! status: ${response.status}`);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('All form submission attempts failed:', error);
+        alert(`Failed to send message: ${error.message}. Please contact us directly at hello@sgpdigitalsolutions.co.uk or WhatsApp us.`);
         submitButton.disabled = false;
         submitButton.innerHTML = 'Send Message';
       });
