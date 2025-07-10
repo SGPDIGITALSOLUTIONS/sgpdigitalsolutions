@@ -1,63 +1,61 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Header from "@/components/Header";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  useEffect(() => {
+    // Zapier form submission handler
+    const handleFormSubmit = (e: Event) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const successMessage = document.getElementById('successMessage');
+      const formContainer = document.getElementById('formContainer');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-    
-    try {
-      // TODO: Replace with your actual API endpoint
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      // Show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="flex items-center justify-center">
+          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Sending...
+        </span>
+      `;
+
+      fetch("https://hooks.zapier.com/hooks/catch/23742018/u3n92gq/", {
+        method: "POST",
+        body: formData
+      })
+      .then(() => {
+        // Show success message on same page
+        if (formContainer && successMessage) {
+          formContainer.style.display = 'none';
+          successMessage.style.display = 'block';
+        }
+      })
+      .catch(() => {
+        alert("Something went wrong. Please try again.");
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Send Message';
       });
+    };
 
-      if (!response.ok) {
-        throw new Error('Failed to send message. Please try again.');
-      }
-
-      setSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-      });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+    const form = document.getElementById("zapierForm");
+    if (form) {
+      form.addEventListener("submit", handleFormSubmit);
     }
-  };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+    // Cleanup
+    return () => {
+      if (form) {
+        form.removeEventListener("submit", handleFormSubmit);
+      }
+    };
+  }, []);
 
   const contactMethods = [
     {
@@ -155,26 +153,31 @@ export default function ContactPage() {
                   Send Us a Message
                 </h2>
                 
-                {success ? (
-                  <div className="bg-sgp-green/10 border border-sgp-green/30 rounded-lg p-6 text-center">
-                    <div className="text-4xl mb-4">✓</div>
-                    <h3 className="text-xl font-bold text-sgp-green mb-2">Message Sent!</h3>
-                    <p className="text-white/80">Thank you for your message! We'll get back to you within 24 hours.</p>
-                    <button
-                      onClick={() => setSuccess(false)}
-                      className="mt-4 text-sgp-green hover:text-sgp-green/80 transition-colors underline"
-                    >
-                      Send another message
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {error && (
-                      <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
-                        <p className="text-red-400">{error}</p>
-                      </div>
-                    )}
-                    
+                {/* Success Message */}
+                <div id="successMessage" className="bg-sgp-green/10 border border-sgp-green/30 rounded-lg p-6 text-center" style={{display: 'none'}}>
+                  <div className="text-4xl mb-4">✓</div>
+                  <h3 className="text-xl font-bold text-sgp-green mb-2">Message Sent!</h3>
+                  <p className="text-white/80">Thank you for your message! We'll get back to you within 24 hours.</p>
+                  <button
+                    onClick={() => {
+                      const successMessage = document.getElementById('successMessage');
+                      const formContainer = document.getElementById('formContainer');
+                      if (successMessage && formContainer) {
+                        successMessage.style.display = 'none';
+                        formContainer.style.display = 'block';
+                        const form = document.getElementById('zapierForm') as HTMLFormElement;
+                        if (form) form.reset();
+                      }
+                    }}
+                    className="mt-4 text-sgp-green hover:text-sgp-green/80 transition-colors underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+
+                {/* Zapier Form */}
+                <div id="formContainer">
+                  <form id="zapierForm" className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label
@@ -187,12 +190,9 @@ export default function ContactPage() {
                           type="text"
                           id="name"
                           name="name"
-                          value={formData.name}
-                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:border-sgp-green focus:ring-1 focus:ring-sgp-green transition-colors"
                           placeholder="Your name"
                           required
-                          disabled={isSubmitting}
                         />
                       </div>
                       
@@ -207,12 +207,9 @@ export default function ContactPage() {
                           type="email"
                           id="email"
                           name="email"
-                          value={formData.email}
-                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:border-sgp-green focus:ring-1 focus:ring-sgp-green transition-colors"
                           placeholder="your@email.com"
                           required
-                          disabled={isSubmitting}
                         />
                       </div>
                     </div>
@@ -229,11 +226,8 @@ export default function ContactPage() {
                           type="tel"
                           id="phone"
                           name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:border-sgp-green focus:ring-1 focus:ring-sgp-green transition-colors"
                           placeholder="Your phone number"
-                          disabled={isSubmitting}
                         />
                       </div>
                       
@@ -247,10 +241,7 @@ export default function ContactPage() {
                         <select
                           id="service"
                           name="service"
-                          value={formData.service}
-                          onChange={handleChange}
                           className="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-lg text-white focus:border-sgp-green focus:ring-1 focus:ring-sgp-green transition-colors"
-                          disabled={isSubmitting}
                         >
                           <option value="">Select a service</option>
                           {services.map((service) => (
@@ -272,35 +263,21 @@ export default function ContactPage() {
                       <textarea
                         id="message"
                         name="message"
-                        value={formData.message}
-                        onChange={handleChange}
                         rows={6}
                         className="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:border-sgp-green focus:ring-1 focus:ring-sgp-green transition-colors resize-none"
                         placeholder="Tell us about your project..."
                         required
-                        disabled={isSubmitting}
                       />
                     </div>
                     
                     <button
                       type="submit"
                       className="w-full bg-sgp-green text-black px-6 py-4 rounded-lg font-semibold hover:bg-sgp-green/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      disabled={isSubmitting}
                     >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center">
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Sending...
-                        </span>
-                      ) : (
-                        'Send Message'
-                      )}
+                      Send Message
                     </button>
                   </form>
-                )}
+                </div>
               </div>
 
               {/* Additional Information */}
