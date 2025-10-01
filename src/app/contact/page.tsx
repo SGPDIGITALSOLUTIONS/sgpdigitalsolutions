@@ -14,6 +14,13 @@ export default function ContactPage() {
       const successMessage = document.getElementById('successMessage');
       const formContainer = document.getElementById('formContainer');
 
+      // Debug: Log all form data
+      console.log('=== FORM SUBMISSION DEBUG ===');
+      console.log('Form data entries:');
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+
       // Show loading state
       submitButton.disabled = true;
       submitButton.innerHTML = `
@@ -28,6 +35,7 @@ export default function ContactPage() {
 
       // Try URL-encoded format first
       const urlEncodedData = new URLSearchParams(formData as any).toString();
+      console.log('URL-encoded data being sent:', urlEncodedData);
       
       fetch("https://hooks.zapier.com/hooks/catch/23742018/u3n92gq/", {
         method: "POST",

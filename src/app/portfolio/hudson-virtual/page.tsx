@@ -43,7 +43,7 @@ export default function HudsonVirtualProject() {
             {/* Project Image */}
             <div className="relative h-96 mb-12 rounded-xl overflow-hidden">
               <Image
-                src="/portfolio/hudson-virtual-screenshot.png"
+                src="/portfolio/hudsonvirtualfinal.png"
                 alt="Hudson Virtual Business Services Website"
                 fill
                 className="object-cover"

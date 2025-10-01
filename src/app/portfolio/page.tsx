@@ -34,7 +34,7 @@ const projects = [
     title: 'Hudson Virtual Business Services',
     clientDescription: 'Professional virtual assistant services led by Tasha Hudson, specializing in helping businesses streamline operations through expert administrative support, business automation, and time-saving solutions. Dedicated to putting your business on autopilot with professional virtual support.',
     projectDescription: 'Modern, professional website featuring interactive pricing cards, booking system integration, testimonials, and conversion-optimized design with purple theme and animated elements.',
-    image: '/portfolio/hudson-virtual-screenshot.png',
+    image: '/portfolio/Hudsonvirtuallogo.jpg',
     projectLink: '/portfolio/hudson-virtual',
     websiteLink: 'https://www.hudsonvirtual.co.uk/',
     status: 'Live',
@@ -42,10 +42,21 @@ const projects = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
   },
   {
+    title: 'I Care Services Providers Ltd',
+    clientDescription: 'A mobile optometry service based in Yorkshire, UK, specializing in home-visit eye care services. They needed a comprehensive digital platform that combines healthcare service delivery with modern e-commerce capabilities while maintaining medical privacy standards and regulatory compliance.',
+    projectDescription: 'Developed a professional healthcare e-commerce platform featuring custom subscription management, secure Stripe payment processing, interactive postcode coverage checker, GDPR-compliant data handling, and multi-channel patient communication system with WhatsApp and email integration.',
+    image: '/portfolio/eyecareproviderlogo.jpg',
+    projectLink: '/portfolio/i-care-services',
+    websiteLink: null,
+    status: 'Completed',
+    category: ['Website Design', 'Integration', 'Bespoke WebTools', 'Automation'],
+    technologies: ['Node.js', 'Express.js', 'Stripe Payment Integration', 'Custom CSS', 'Vercel Analytics', 'Email Integration', 'WhatsApp Integration'],
+  },
+  {
     title: 'Heartwood Wellbeing',
     clientDescription: 'Holistic companion care for seniors, led by Kelly, a trained Holistic Therapist with 26 years of experience. Specializing in gentle touch therapy, sound healing, and aromatherapy to support seniors with loneliness, anxiety, and memory loss. Nurturing body, mind and spirit with warmth, intention, and heart.',
     projectDescription: 'Modern wellness website featuring earth-toned design, service showcase, and therapeutic approach presentation with focus on senior care and holistic wellbeing.',
-    image: '/portfolio/heartwoodwellbeing.png',
+    image: '/portfolio/heartwoodlogo1.jpg',
     projectLink: '/portfolio/heartwood-wellbeing',
     websiteLink: 'https://heartwood-wellbeing.vercel.app/',
     status: 'In Development',
@@ -193,7 +204,7 @@ function PortfolioContent() {
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-contain md:object-cover"
+                        className="object-contain p-4"
                         priority={index === 0}
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         quality={100}
