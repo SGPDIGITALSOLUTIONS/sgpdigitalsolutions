@@ -41,7 +41,7 @@ export default function ICareServicesPage() {
                 </div>
                 
                 <h1 className="text-5xl font-bold text-white mb-6">
-                  I Care Services Providers Ltd
+                  I Care Service Provider Ltd
                 </h1>
                 
                 <p className="text-xl text-white/80 mb-8 leading-relaxed">
@@ -63,7 +63,7 @@ export default function ICareServicesPage() {
                 <div className="relative">
                   <Image
                     src="/portfolio/eyecareproviderlogo.jpg"
-                    alt="I Care Services Providers Ltd Logo"
+                    alt="I Care Service Provider Ltd Logo"
                     width={320}
                     height={240}
                     className="rounded-xl shadow-lg object-contain"

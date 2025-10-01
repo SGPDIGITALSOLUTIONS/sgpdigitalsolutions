@@ -42,7 +42,7 @@ const projects = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
   },
   {
-    title: 'I Care Services Providers Ltd',
+    title: 'I Care Service Provider Ltd',
     clientDescription: 'A mobile optometry service based in Yorkshire, UK, specializing in home-visit eye care services. They needed a comprehensive digital platform that combines healthcare service delivery with modern e-commerce capabilities while maintaining medical privacy standards and regulatory compliance.',
     projectDescription: 'Developed a professional healthcare e-commerce platform featuring custom subscription management, secure Stripe payment processing, interactive postcode coverage checker, GDPR-compliant data handling, and multi-channel patient communication system with WhatsApp and email integration.',
     image: '/portfolio/eyecareproviderlogo.jpg',
