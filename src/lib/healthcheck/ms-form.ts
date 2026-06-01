@@ -1,11 +1,8 @@
 /**
  * Microsoft Forms pre-fill integration.
  *
- * Setup:
- * 1. In MS Forms: Share → Get a link to pre-fill → copy the URL.
- * 2. Set NEXT_PUBLIC_MS_FORM_HEALTHCHECK_URL in .env.local to that URL.
- * 3. Replace the placeholder keys below with the query param names from your
- *    pre-fill link (e.g. r123abc= for each field).
+ * Base URL: NEXT_PUBLIC_MS_FORM_HEALTHCHECK_URL in .env.local
+ * Question IDs from Microsoft Forms "Get a link to pre-fill".
  */
 
 export type HealthcheckFormValues = {
@@ -21,22 +18,29 @@ export type HealthcheckFormValues = {
   consent: boolean;
 };
 
-/**
- * Map site form fields → MS Forms pre-fill query parameter names.
- * Update these when you have your pre-fill template URL from Microsoft Forms.
- */
+/** Primary pre-fill query param per site field (r + question guid). */
 export const MS_FORM_FIELD_PARAMS: Partial<
   Record<keyof HealthcheckFormValues, string>
 > = {
-  name: 'r_name',
-  businessName: 'r_business_name',
-  email: 'r_email',
-  phone: 'r_phone',
-  processTask: 'r_process_task',
-  currentProcess: 'r_current_process',
-  painPoints: 'r_pain_points',
-  toolsInUse: 'r_tools',
-  preferredContact: 'r_preferred_contact',
+  name: 'r74661dab4ec347f88ec8387de318b610',
+  businessName: 'r829bcd2742be4eaab5ce172fc77e2ddd',
+  email: 'r84f53c06fd1841e694022e30aafed26a',
+  phone: 'rca1d3679555d454ca8c4a66ba3843bca',
+  processTask: 'rb14c226863bf42d1885a8fe986fd63c6',
+  currentProcess: 'r58301804b427468194c293e6ba4d49bf',
+  painPoints: 'r46a829d59fea4edd8587093507f2b418',
+  toolsInUse: 'r57b098761c7a48d5837299c1de8b578d',
+  preferredContact: 'r763471f4692546c1b6b74a96c7a6f99c',
+};
+
+/**
+ * Choice questions also need QuestionInfo_* (exact option label must match MS Form).
+ */
+export const MS_FORM_QUESTION_INFO_PARAMS: Partial<
+  Record<keyof HealthcheckFormValues, string>
+> = {
+  processTask: 'QuestionInfo_rb14c226863bf42d1885a8fe986fd63c6',
+  preferredContact: 'QuestionInfo_r763471f4692546c1b6b74a96c7a6f99c',
 };
 
 export function getMsFormBaseUrl(): string | null {
@@ -59,22 +63,31 @@ export function buildMsFormUrl(values: HealthcheckFormValues): string | null {
     return null;
   }
 
-  const entries: [string, string][] = [
-    ['name', values.name],
-    ['businessName', values.businessName],
-    ['email', values.email],
-    ['phone', values.phone],
-    ['processTask', values.processTask],
-    ['currentProcess', values.currentProcess],
-    ['painPoints', values.painPoints],
-    ['toolsInUse', values.toolsInUse],
-    ['preferredContact', values.preferredContact],
+  const entries: (keyof HealthcheckFormValues)[] = [
+    'name',
+    'businessName',
+    'email',
+    'phone',
+    'processTask',
+    'currentProcess',
+    'painPoints',
+    'toolsInUse',
+    'preferredContact',
   ];
 
-  for (const [field, value] of entries) {
-    const paramKey = MS_FORM_FIELD_PARAMS[field as keyof HealthcheckFormValues];
-    if (paramKey && value.trim()) {
-      url.searchParams.set(paramKey, value.trim());
+  for (const field of entries) {
+    const raw = values[field];
+    if (typeof raw !== 'string' || !raw.trim()) continue;
+
+    const value = raw.trim();
+    const paramKey = MS_FORM_FIELD_PARAMS[field];
+    if (paramKey) {
+      url.searchParams.set(paramKey, value);
+    }
+
+    const infoKey = MS_FORM_QUESTION_INFO_PARAMS[field];
+    if (infoKey) {
+      url.searchParams.set(infoKey, value);
     }
   }
 

@@ -39,16 +39,19 @@ Restart the dev server after changing env vars.
 
 Open the pre-fill link and note each field’s query name (often `r` + id, e.g. `r1a2b3c4=`.
 
-Edit `src/lib/healthcheck/ms-form.ts` — update `MS_FORM_FIELD_PARAMS`:
+Field mapping is configured in `src/lib/healthcheck/ms-form.ts` (`MS_FORM_FIELD_PARAMS`).
 
-```ts
-export const MS_FORM_FIELD_PARAMS = {
-  name: 'rXXXXXXXX',           // paste from MS pre-fill URL
-  businessName: 'rXXXXXXXX',
-  email: 'rXXXXXXXX',
-  // ...
-};
-```
+| Site field | MS question param |
+|------------|-------------------|
+| Name | `r74661dab4ec347f88ec8387de318b610` |
+| Business name | `r829bcd2742be4eaab5ce172fc77e2ddd` |
+| Email | `r84f53c06fd1841e694022e30aafed26a` |
+| Phone | `rca1d3679555d454ca8c4a66ba3843bca` |
+| Process / admin task | `rb14c226863bf42d1885a8fe986fd63c6` (+ `QuestionInfo_…`) |
+| What currently happens | `r58301804b427468194c293e6ba4d49bf` |
+| Pain points | `r46a829d59fea4edd8587093507f2b418` |
+| Tools in use | `r57b098761c7a48d5837299c1de8b578d` |
+| Preferred contact | `r763471f4692546c1b6b74a96c7a6f99c` (+ `QuestionInfo_…`) |
 
 Only fields with a mapped key and a non-empty value are appended to the redirect URL.
 
