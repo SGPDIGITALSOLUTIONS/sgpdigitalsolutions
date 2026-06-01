@@ -5,18 +5,7 @@
  * Question IDs from Microsoft Forms "Get a link to pre-fill".
  */
 
-export type HealthcheckFormValues = {
-  name: string;
-  businessName: string;
-  email: string;
-  phone: string;
-  processTask: string;
-  currentProcess: string;
-  painPoints: string;
-  toolsInUse: string;
-  preferredContact: string;
-  consent: boolean;
-};
+import type { HealthcheckFormValues } from './types';
 
 /** Primary pre-fill query param per site field (r + question guid). */
 export const MS_FORM_FIELD_PARAMS: Partial<

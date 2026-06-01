@@ -1,12 +1,8 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import {
-  buildMsFormUrl,
-  getMsFormBaseUrl,
-  isMsFormConfigured,
-  type HealthcheckFormValues,
-} from '@/lib/healthcheck/ms-form';
+import type { HealthcheckFormValues } from '@/lib/healthcheck/types';
+import { isValidEmail } from '@/lib/healthcheck/validation';
 
 const inputClass =
   'w-full px-4 py-3 bg-terminal-black border-3 border-terminal-white rounded-terminal text-terminal-white placeholder:text-terminal-white/40 focus:border-terminal-green focus:outline-none font-terminal-sans';
@@ -19,6 +15,7 @@ const emptyValues: HealthcheckFormValues = {
   businessName: '',
   email: '',
   phone: '',
+  website: '',
   processTask: '',
   currentProcess: '',
   painPoints: '',
@@ -32,8 +29,7 @@ export default function ExpressInterestForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof HealthcheckFormValues, string>>>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-
-  const configured = isMsFormConfigured();
+  const [submitted, setSubmitted] = useState(false);
 
   function validate(): boolean {
     const next: Partial<Record<keyof HealthcheckFormValues, string>> = {};
@@ -42,7 +38,7 @@ export default function ExpressInterestForm() {
     if (!values.businessName.trim()) next.businessName = 'Business name is required';
     if (!values.email.trim()) {
       next.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+    } else if (!isValidEmail(values.email)) {
       next.email = 'Enter a valid email address';
     }
     if (!values.processTask.trim()) {
@@ -56,29 +52,39 @@ export default function ExpressInterestForm() {
     return Object.keys(next).length === 0;
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitError(null);
 
     if (!validate()) return;
 
-    if (!configured) {
-      setSubmitError(
-        'The booking form is not configured yet. Please contact hello@sgpdigitalsolutions.co.uk and we will help you book in.'
-      );
-      return;
-    }
-
-    const url = buildMsFormUrl(values);
-    if (!url) {
-      setSubmitError(
-        'Could not open the booking form. Please check the form URL configuration or email hello@sgpdigitalsolutions.co.uk.'
-      );
-      return;
-    }
-
     setSubmitting(true);
-    window.location.href = url;
+
+    try {
+      const res = await fetch('/api/healthcheck/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+
+      if (!res.ok) {
+        setSubmitError(
+          data.error ||
+            'We could not send your details right now. Please try again or email hello@sgpdigitalsolutions.co.uk.'
+        );
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        'We could not send your details right now. Please check your connection and try again, or email hello@sgpdigitalsolutions.co.uk.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   function update<K extends keyof HealthcheckFormValues>(
@@ -95,33 +101,40 @@ export default function ExpressInterestForm() {
     }
   }
 
-  const baseOnlyHref = getMsFormBaseUrl();
+  function resetForm() {
+    setValues(emptyValues);
+    setErrors({});
+    setSubmitError(null);
+    setSubmitted(false);
+  }
+
+  if (submitted) {
+    return (
+      <div
+        className="text-center py-8 px-4 neo-terminal-element border-3 border-terminal-green rounded-neo bg-terminal-dark"
+        role="status"
+      >
+        <p className="text-4xl mb-4" aria-hidden>
+          ✓
+        </p>
+        <h3 className="text-2xl font-black text-terminal-green font-terminal-mono uppercase mb-4">
+          Thank you
+        </h3>
+        <p className="text-terminal-white/90 mb-2">
+          Your interest in the £50 Admin &amp; Workflow Healthcheck has been received.
+        </p>
+        <p className="text-terminal-white/80 mb-8">
+          Natasha will be in touch soon to arrange your healthcheck.
+        </p>
+        <button type="button" onClick={resetForm} className="btn btn-secondary">
+          Submit another enquiry
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-      {!configured && (
-        <div
-          className="p-4 border-3 border-terminal-yellow rounded-terminal bg-terminal-dark text-terminal-yellow text-sm"
-          role="status"
-        >
-          Microsoft Form URL is not set. Add{' '}
-          <code className="text-terminal-white">NEXT_PUBLIC_MS_FORM_HEALTHCHECK_URL</code>{' '}
-          to your environment file to enable pre-filled redirects.
-          {baseOnlyHref && (
-            <p className="mt-2">
-              <a
-                href={baseOnlyHref}
-                className="text-terminal-cyan underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open form without pre-fill (dev)
-              </a>
-            </p>
-          )}
-        </div>
-      )}
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="hc-name" className={labelClass}>
@@ -191,6 +204,22 @@ export default function ExpressInterestForm() {
             autoComplete="tel"
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="hc-website" className={labelClass}>
+          Website
+        </label>
+        <input
+          id="hc-website"
+          name="website"
+          type="url"
+          className={inputClass}
+          value={values.website}
+          onChange={(e) => update('website', e.target.value)}
+          placeholder="https://yourbusiness.co.uk"
+          autoComplete="url"
+        />
       </div>
 
       <div>
@@ -300,7 +329,7 @@ export default function ExpressInterestForm() {
         className="btn btn-primary w-full md:w-auto disabled:opacity-50"
         aria-label="Let's Find the Faff — Express Interest"
       >
-        {submitting ? 'Opening form…' : 'Express Interest'}
+        {submitting ? 'Sending…' : 'Express Interest'}
       </button>
       <p className="text-xs text-terminal-white/50 font-terminal-mono">
         Alternative: Let&apos;s Find the Faff

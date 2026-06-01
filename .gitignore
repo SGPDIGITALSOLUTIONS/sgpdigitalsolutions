@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Local Power Automate setup (may contain webhook URLs)
+POWER_AUTOMATE_HEALTHCHECK_SETUP.md
+
 # vercel
 .vercel
 
