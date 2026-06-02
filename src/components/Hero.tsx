@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { homeHero } from '@/lib/home/content';
 
 export default function Hero() {
   return (
@@ -110,7 +111,7 @@ export default function Hero() {
           </h1>
           
           <p className="hero-subtitle mx-auto mb-16">
-            We find solutions for people who do the real work!
+            {homeHero.subtitle}
           </p>
           
           {/* Services Grid */}
@@ -121,11 +122,14 @@ export default function Hero() {
               <div className="text-sm text-white/70 mt-1">Professional websites that actually convert</div>
               <div className="text-terminal-green font-bold mt-2">From £200</div>
             </Link>
-            <Link href="/services" className="stat-card card-cyan hover:scale-105 transition-transform cursor-pointer">
-              <div className="stat-number text-3xl">⚡</div>
-              <div className="stat-label font-semibold">Business Automation</div>
-              <div className="text-sm text-white/70 mt-1">Save hours with smart automation tools</div>
-              <div className="text-terminal-cyan font-bold mt-2 text-xs">From £150 for full audit (plus implementation costs)</div>
+            <Link href="/admin-workflow-healthcheck" className="stat-card card-cyan hover:scale-105 transition-transform cursor-pointer relative border-2 border-terminal-yellow">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-terminal-yellow text-terminal-black text-xs font-bold px-3 py-1 rounded-terminal font-terminal-mono uppercase whitespace-nowrap">
+                Popular starting point
+              </span>
+              <div className="stat-number text-3xl mt-2">⚡</div>
+              <div className="stat-label font-semibold">Admin &amp; Workflow Healthcheck</div>
+              <div className="text-sm text-white/70 mt-1">Find the faff in one admin-heavy process</div>
+              <div className="text-terminal-cyan font-bold mt-2 text-xs">£50 healthcheck — then we implement what makes sense</div>
             </Link>
             <Link href="/services" className="stat-card card-purple hover:scale-105 transition-transform cursor-pointer">
               <div className="stat-number text-3xl">🛠️</div>

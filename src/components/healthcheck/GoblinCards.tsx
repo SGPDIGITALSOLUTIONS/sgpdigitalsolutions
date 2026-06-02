@@ -1,42 +1,41 @@
-import HealthcheckGraphic from './HealthcheckGraphic';
-import { goblinSectionCaption, goblins } from '@/lib/healthcheck/content';
+import { workflowGoblins, workflowGoblinsSection } from '@/lib/healthcheck/content';
 
 export default function GoblinCards() {
   return (
-    <section className="py-20 bg-terminal-dark terminal-section">
+    <section className="py-14 bg-terminal-black terminal-section">
       <div className="container">
-        <h2 className="section-title text-center mb-4">Common workflow goblins</h2>
-        <p className="text-center text-terminal-white/80 mb-4">
-          These are the usual suspects:
+        <h2 className="section-title text-center mb-4">
+          {workflowGoblinsSection.title}
+        </h2>
+        <p className="text-center text-terminal-white/80 max-w-2xl mx-auto mb-10">
+          {workflowGoblinsSection.intro}
         </p>
 
-        <div className="flex justify-center mb-12">
-          <div className="neo-terminal-element border-4 border-terminal-purple rounded-neo p-6 max-w-sm text-center">
-            <HealthcheckGraphic
-              variant="goblin"
-              className="w-24 mx-auto text-terminal-green mb-4"
-            />
-            <p className="text-sm italic text-terminal-white/80">
-              &ldquo;{goblinSectionCaption}&rdquo;
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {goblins.map((goblin) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {workflowGoblins.map((goblin) => (
             <article
               key={goblin.id}
-              className="neo-terminal-element bg-terminal-black border-4 border-terminal-white rounded-neo p-6 hover:border-terminal-green transition-colors"
+              className="neo-terminal-element bg-terminal-dark border-4 border-terminal-white rounded-neo p-6 hover:border-terminal-green transition-colors flex flex-col"
             >
               <h3 className="text-terminal-green font-terminal-mono font-bold text-lg uppercase mb-3">
                 {goblin.title}
               </h3>
-              <p className="text-terminal-white/80 text-sm leading-relaxed">
+              <p className="text-terminal-white/80 text-sm leading-relaxed mb-4 flex-grow">
                 {goblin.description}
+              </p>
+              <p className="text-terminal-cyan text-xs font-terminal-mono uppercase mb-1">
+                What I do about it
+              </p>
+              <p className="text-terminal-white/90 text-sm leading-relaxed">
+                {goblin.help}
               </p>
             </article>
           ))}
         </div>
+
+        <p className="text-center text-terminal-white/90 max-w-2xl mx-auto text-sm">
+          {workflowGoblinsSection.closing}
+        </p>
       </div>
     </section>
   );

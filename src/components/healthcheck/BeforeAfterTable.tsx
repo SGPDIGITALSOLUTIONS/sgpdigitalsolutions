@@ -1,42 +1,16 @@
-import HealthcheckGraphic from './HealthcheckGraphic';
-import {
-  automationCaption,
-  beforeAfter,
-  spreadsheetCaption,
-} from '@/lib/healthcheck/content';
+import { beforeAfter, examplesIntro } from '@/lib/healthcheck/content';
 
 export default function BeforeAfterTable() {
   return (
     <section
       id="examples"
-      className="py-20 bg-terminal-black terminal-section scroll-mt-24"
+      className="py-14 bg-terminal-dark terminal-section scroll-mt-24"
     >
       <div className="container">
         <h2 className="section-title text-center mb-4">Before and after examples</h2>
-        <p className="text-center text-terminal-white/80 max-w-2xl mx-auto mb-12">
-          This is where people will recognise themselves.
+        <p className="text-center text-terminal-white/80 max-w-2xl mx-auto mb-10">
+          {examplesIntro}
         </p>
-
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-          <div className="text-center">
-            <HealthcheckGraphic
-              variant="spreadsheet"
-              className="w-28 mx-auto text-terminal-yellow"
-            />
-            <p className="mt-3 text-sm italic text-terminal-white/70 max-w-[200px]">
-              &ldquo;{spreadsheetCaption}&rdquo;
-            </p>
-          </div>
-          <div className="text-center flex-1 max-w-md">
-            <HealthcheckGraphic
-              variant="automation"
-              className="w-full max-w-[280px] mx-auto text-terminal-cyan"
-            />
-            <p className="mt-3 text-sm italic text-terminal-white/70">
-              &ldquo;{automationCaption}&rdquo;
-            </p>
-          </div>
-        </div>
 
         <div className="hidden md:block overflow-x-auto neo-terminal-element border-4 border-terminal-green rounded-neo">
           <table className="w-full text-left border-collapse">
@@ -82,7 +56,7 @@ export default function BeforeAfterTable() {
           {beforeAfter.map((row) => (
             <article
               key={row.process}
-              className="neo-terminal-element bg-terminal-dark border-4 border-terminal-white rounded-neo p-6"
+              className="neo-terminal-element bg-terminal-black border-4 border-terminal-white rounded-neo p-6"
             >
               <h3 className="text-terminal-green font-terminal-mono font-bold uppercase mb-4">
                 {row.process}

@@ -18,12 +18,21 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'SGP Digital Solutions - Smart Websites & Efficient Systems',
-  description: 'We find solutions for people who do the real work!',
-  keywords: ['web development', 'digital solutions', 'software development', 'SGP Digital'],
+  description:
+    'Save time on admin and workflows. Affordable websites, business automation, and practical digital solutions for people who do the real work.',
+  keywords: [
+    'web development',
+    'digital solutions',
+    'admin workflow healthcheck',
+    'business process automation',
+    'Microsoft 365 automation',
+    'Power Automate support',
+    'SGP Digital',
+  ],
   authors: [{ name: 'SGP Digital Solutions' }],
   openGraph: {
     title: 'SGP Digital Solutions',
-    description: 'Smart websites & efficient systems that drive results',
+    description: 'Smart websites, efficient systems, and less admin faff',
     type: 'website',
   },
 }

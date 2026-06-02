@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import HealthcheckGraphic from './HealthcheckGraphic';
-import { clockCaption, hero } from '@/lib/healthcheck/content';
+import { clockCaption, hero, whatThisIs } from '@/lib/healthcheck/content';
 
 export default function HealthcheckHero() {
   return (
-    <section className="py-24 bg-terminal-black terminal-section">
+    <section className="py-14 md:py-16 bg-terminal-black terminal-section">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -19,8 +19,11 @@ export default function HealthcheckHero() {
                 </p>
               ))}
             </div>
-            <p className="font-terminal-mono text-terminal-green font-bold mb-8">
+            <p className="font-terminal-mono text-terminal-green font-bold mb-4">
               {hero.tagline.join(' ')}
+            </p>
+            <p className="text-xl font-black text-terminal-green font-terminal-mono mb-2">
+              {whatThisIs.aim}
             </p>
             <p className="text-2xl font-black text-terminal-yellow font-terminal-mono mb-8">
               {hero.price} healthcheck

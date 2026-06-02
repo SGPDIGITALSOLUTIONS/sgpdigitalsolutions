@@ -1,22 +1,43 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+
+const LOGO_SRC = '/images/logo trimmed.png';
+const HEALTHCHECK_PATH = '/admin-workflow-healthcheck';
+const HEALTHCHECK_NAV_LABEL = 'ADMIN/PROCESS MOT';
+
+const healthcheckNavLinkClass =
+  'nav-link px-4 py-2 rounded-terminal border-2 border-terminal-yellow bg-terminal-yellow/15 text-terminal-yellow font-bold font-terminal-mono shadow-[0_0_12px_rgba(255,255,0,0.25)] hover:bg-terminal-yellow hover:text-terminal-black transition-all duration-200';
+
+const healthcheckNavLinkMobileClass =
+  'block nav-link py-3 px-4 rounded-terminal bg-terminal-yellow/15 border-2 border-terminal-yellow text-terminal-yellow font-bold font-terminal-mono hover:bg-terminal-yellow hover:text-terminal-black transition-all duration-200';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const onHealthcheckPage = pathname === HEALTHCHECK_PATH;
 
   return (
     <header className="bg-terminal-black border-b-3 border-terminal-green sticky top-0 z-50 terminal-section">
-      <nav className="container mx-auto px-4 py-6">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link 
-            href="/" 
-            className="text-2xl font-black text-terminal-white hover:text-terminal-green transition-all duration-200 font-terminal-mono uppercase tracking-wider terminal-glow"
-            style={{ textShadow: '2px 2px 0px #000000, 0 0 10px rgba(0, 255, 136, 0.6)' }}
+      <nav className="container mx-auto px-4 py-2 md:py-2.5">
+        <div className="flex justify-between items-center gap-4">
+          <Link
+            href="/"
+            className="flex-shrink-0 rounded-terminal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terminal-green"
+            aria-label="SGP Digital Solutions — home"
           >
-            SGP.DIGITAL.SOLUTIONS
+            <Image
+              src={LOGO_SRC}
+              alt="SGP Digital Solutions"
+              width={640}
+              height={128}
+              sizes="(max-width: 768px) 300px, 540px"
+              className="h-12 w-auto max-w-[min(92vw,340px)] sm:h-14 sm:max-w-[440px] md:h-16 md:max-w-[560px] object-contain object-left"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,6 +65,17 @@ export default function Header() {
               className="nav-link px-4 py-2 rounded-terminal border-2 border-transparent hover:border-terminal-pink hover:bg-terminal-grey transition-all duration-200"
             >
               CLIENTS
+            </Link>
+            <Link
+              href={HEALTHCHECK_PATH}
+              className={
+                onHealthcheckPage
+                  ? `${healthcheckNavLinkClass} ring-2 ring-terminal-yellow ring-offset-2 ring-offset-terminal-black`
+                  : healthcheckNavLinkClass
+              }
+              aria-current={onHealthcheckPage ? 'page' : undefined}
+            >
+              {HEALTHCHECK_NAV_LABEL}
             </Link>
             <Link 
               href="/contact" 
@@ -108,8 +140,20 @@ export default function Header() {
               CLIENTS
             </Link>
             <Link
+              href={HEALTHCHECK_PATH}
+              className={
+                onHealthcheckPage
+                  ? `${healthcheckNavLinkMobileClass} ring-2 ring-terminal-yellow ring-offset-2 ring-offset-terminal-dark`
+                  : healthcheckNavLinkMobileClass
+              }
+              aria-current={onHealthcheckPage ? 'page' : undefined}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {HEALTHCHECK_NAV_LABEL}
+            </Link>
+            <Link
               href="/contact"
-              className="block btn btn-primary w-full text-center py-3 mt-4"
+              className="block btn btn-primary w-full text-center py-3 mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
               CONTACT
