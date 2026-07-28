@@ -35,6 +35,10 @@ export const metadata: Metadata = {
     description: 'Smart websites, efficient systems, and less admin faff',
     type: 'website',
   },
+  icons: {
+    icon: [{ url: '/images/sgpfavicon.png', type: 'image/png' }],
+    apple: '/images/sgpfavicon.png',
+  },
 }
 
 export default function RootLayout({

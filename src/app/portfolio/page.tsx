@@ -64,6 +64,19 @@ const projects = [
     technologies: ['Astro', 'Tailwind CSS', 'TypeScript', 'React Components'],
   },
   {
+    title: "Danny's Decorating Ltd",
+    clientDescription:
+      'Premium residential decorating in Kensington and Chelsea — specialist painting, wallcoverings, and cabinetry finishes for high-value homes where detail, cleanliness, and respectful in-home working matter.',
+    projectDescription:
+      'Clean, modern brochure website built around minimal-disruption messaging — clear service presentation, trust-led content, and a straightforward quotation enquiry flow.',
+    image: '/portfolio/dannys-decorating-logo.png',
+    projectLink: '/portfolio/dannys-decorating',
+    websiteLink: null,
+    status: 'Completed',
+    category: 'Website Design',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
     title: 'Private Business Client',
     clientDescription: 'A forward-thinking business facing a critical data migration challenge from legacy systems. Successfully preserved years of valuable business data that would have otherwise been lost.',
     projectDescription: 'Advanced automation tool that intelligently navigated multiple tabs, bypassed dynamic loading challenges, and extracted 3000+ database records in just 3 hours - saving weeks of manual work.',
