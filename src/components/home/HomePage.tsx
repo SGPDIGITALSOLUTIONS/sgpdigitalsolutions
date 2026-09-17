@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrochureDownload from '@/components/BrochureDownload';
 import HomeNavigation from './HomeNavigation';
 import AutomationVideo from './AutomationVideo';
 import AutomationIcon from './AutomationIcon';
@@ -24,6 +25,7 @@ export default function HomePage() {
                 <a href="#automation" className={styles.textLink}>See what we can automate <span aria-hidden="true">↘</span></a>
               </div>
               <p className={styles.heroNote}><AutomationIcon name="check" /> Practical solutions. Clear scope. No unnecessary faff.</p>
+              <BrochureDownload className={styles.textLink} />
             </div>
             <AutomationVideo />
           </div>
@@ -136,7 +138,7 @@ export default function HomePage() {
       <footer className={styles.footer}>
         <div className={styles.container}>
           <div className={styles.footerTop}><div><strong>SGP DIGITAL SOLUTIONS</strong><p>{footerTagline}</p></div>
-            <nav aria-label="Footer navigation"><Link href="/about">About us</Link><Link href="/services">All services</Link><Link href="/portfolio">Client work</Link><Link href="/contact">Contact</Link></nav></div>
+            <nav aria-label="Footer navigation"><Link href="/about">About us</Link><Link href="/services">All services</Link><Link href="/portfolio">Client work</Link><Link href="/contact">Contact</Link><BrochureDownload compact /></nav></div>
           <div className={styles.footerBottom}><p>© {new Date().getFullYear()} SGP Digital Solutions. All rights reserved.</p>
             <div><Link href="/privacy">Privacy Policy</Link><Link href="/terms">Terms of Service</Link></div></div>
         </div>

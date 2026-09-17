@@ -3,6 +3,7 @@
 import SiteIcon from '@/components/SiteIcon';
 
 import SitePage from '@/components/SitePage';
+import BrochureDownload from '@/components/BrochureDownload';
 import { useState, type FormEvent } from 'react';
 import type { ContactFormValues } from '@/lib/contact/types';
 import { isValidEmail } from '@/lib/healthcheck/validation';
@@ -139,6 +140,7 @@ export default function ContactPage() {
               Ready to transform your digital presence? We&apos;d love to hear about your project
               and discuss how we can help bring your vision to life.
             </p>
+            <BrochureDownload className="btn btn-outline" />
           </div>
         </div>
       </section>

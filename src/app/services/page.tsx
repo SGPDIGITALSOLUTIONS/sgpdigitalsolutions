@@ -1,5 +1,6 @@
 import SiteIcon from '@/components/SiteIcon';
 import SitePage from '@/components/SitePage';
+import BrochureDownload from '@/components/BrochureDownload';
 import Link from 'next/link';
 
 const services = [
@@ -107,6 +108,7 @@ export default function ServicesPage() {
             <p className="text-xl text-white/80 mb-12 leading-relaxed">
               Comprehensive digital solutions to transform your business with cutting-edge technology and expert development.
             </p>
+            <BrochureDownload className="btn btn-outline" />
           </div>
         </div>
       </section>
@@ -267,4 +269,4 @@ export default function ServicesPage() {
       </section>
     </SitePage>
   );
-} 
+}
