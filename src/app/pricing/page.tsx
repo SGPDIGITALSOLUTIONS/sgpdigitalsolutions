@@ -1,7 +1,7 @@
 'use client';
 
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
-import Header from "@/components/Header";
 
 export default function PricingPage() {
   const pricingOptions = [
@@ -73,14 +73,14 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <SitePage>
       {/* Header */}
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="site-eyebrow">CLEAR SCOPE. TRANSPARENT PRICING.</p>
             <h1 className="text-6xl font-bold text-white mb-6">
               Simple, Transparent Pricing
             </h1>
@@ -298,6 +298,6 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 } 

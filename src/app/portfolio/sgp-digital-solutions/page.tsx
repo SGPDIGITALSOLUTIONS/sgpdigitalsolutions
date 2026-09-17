@@ -1,11 +1,10 @@
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from "@/components/Header";
 
 export default function SGPDigitalSolutionsProject() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <SitePage>
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -174,6 +173,6 @@ export default function SGPDigitalSolutionsProject() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 } 

@@ -1,11 +1,10 @@
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from "@/components/Header";
 
 export default function DatabaseScrapeToolProject() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <SitePage>
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -31,10 +30,10 @@ export default function DatabaseScrapeToolProject() {
                 Advanced automation tool that intelligently navigated multiple tabs, bypassed dynamic loading challenges, and extracted 3000+ database records in just 3 hours - saving weeks of manual work
               </p>
               <div className="flex justify-center gap-4 flex-wrap">
-                <span className="px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm">
+                <span className="px-4 py-2 bg-sgp-green/10 text-sgp-green rounded-full text-sm">
                   Custom Tool Development
                 </span>
-                <span className="px-4 py-2 bg-red-500/10 text-red-400 rounded-full text-sm">
+                <span className="px-4 py-2 bg-sgp-green/10 text-sgp-green rounded-full text-sm">
                   Automation
                 </span>
                 <span className="px-4 py-2 bg-white/5 text-white/70 rounded-full text-sm">
@@ -44,10 +43,10 @@ export default function DatabaseScrapeToolProject() {
             </div>
 
             {/* Project Image */}
-            <div className="relative h-96 mb-12 rounded-xl overflow-hidden bg-gradient-to-br from-purple-900/20 to-red-900/20 border border-purple-500/20">
+            <div className="relative h-96 mb-12 rounded-xl overflow-hidden bg-gradient-to-br from-sgp-green/20 to-sgp-green/20 border border-sgp-green/20">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <svg className="w-24 h-24 text-purple-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-24 h-24 text-sgp-green mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
                   </svg>
                   <p className="text-white/60 text-lg">Custom Data Extraction Tool</p>
@@ -70,23 +69,23 @@ export default function DatabaseScrapeToolProject() {
                 <h2 className="text-2xl font-bold text-white mb-6">Project Details</h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-purple-400 font-semibold mb-2">Client Type</h3>
+                    <h3 className="text-sgp-green font-semibold mb-2">Client Type</h3>
                     <p className="text-white/70">Private Business Client</p>
                   </div>
                   <div>
-                    <h3 className="text-purple-400 font-semibold mb-2">Industry</h3>
+                    <h3 className="text-sgp-green font-semibold mb-2">Industry</h3>
                     <p className="text-white/70">Data Management & Legacy Systems</p>
                   </div>
                   <div>
-                    <h3 className="text-purple-400 font-semibold mb-2">Data Volume</h3>
+                    <h3 className="text-sgp-green font-semibold mb-2">Data Volume</h3>
                     <p className="text-white/70">3,000+ Database Records</p>
                   </div>
                   <div>
-                    <h3 className="text-purple-400 font-semibold mb-2">Completion Time</h3>
+                    <h3 className="text-sgp-green font-semibold mb-2">Completion Time</h3>
                     <p className="text-white/70">3 Hours Total</p>
                   </div>
                   <div>
-                    <h3 className="text-purple-400 font-semibold mb-2">Project Type</h3>
+                    <h3 className="text-sgp-green font-semibold mb-2">Project Type</h3>
                     <p className="text-white/70">Custom Automation Tool</p>
                   </div>
                 </div>
@@ -97,23 +96,23 @@ export default function DatabaseScrapeToolProject() {
                 <h2 className="text-2xl font-bold text-white mb-6">Technologies Used</h2>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-sgp-green rounded-full"></div>
                     <span className="text-white/70">Python</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-sgp-green rounded-full"></div>
                     <span className="text-white/70">Java</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-sgp-green rounded-full"></div>
                     <span className="text-white/70">Selenium</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-sgp-green rounded-full"></div>
                     <span className="text-white/70">BeautifulSoup</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-sgp-green rounded-full"></div>
                     <span className="text-white/70">Pandas</span>
                   </div>
                 </div>
@@ -131,7 +130,7 @@ export default function DatabaseScrapeToolProject() {
             <h2 className="text-3xl font-bold text-white mb-8">Project Overview</h2>
             
             <div className="bg-black/40 rounded-xl border border-white/10 p-8 mb-8">
-              <h3 className="text-xl font-semibold text-purple-400 mb-4">Challenge</h3>
+              <h3 className="text-xl font-semibold text-sgp-green mb-4">Challenge</h3>
               <p className="text-white/70 mb-6">
                 A private client had over 3,000 critical data records locked in a legacy system with no 
                 built-in export or copy functionality. The system featured complex multi-tab navigation, 
@@ -139,7 +138,7 @@ export default function DatabaseScrapeToolProject() {
                 been prone to human error. Time was critical as the system was scheduled for decommissioning.
               </p>
               
-              <h3 className="text-xl font-semibold text-red-400 mb-4">Solution</h3>
+              <h3 className="text-xl font-semibold text-sgp-green mb-4">Solution</h3>
               <p className="text-white/70 mb-6">
                 Developed a sophisticated multi-language automation solution using Python and Java. The tool 
                 intelligently navigated between different tabs, bypassed dynamic loading challenges by 
@@ -171,9 +170,9 @@ export default function DatabaseScrapeToolProject() {
             <h2 className="text-3xl font-bold text-white mb-8">Technical Highlights</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-purple-900/20 to-purple-900/10 rounded-xl border border-purple-500/20 p-6">
+              <div className="bg-gradient-to-br from-sgp-green/20 to-sgp-green/10 rounded-xl border border-sgp-green/20 p-6">
                 <div className="flex items-center mb-4">
-                  <svg className="w-8 h-8 text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-sgp-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <h3 className="text-xl font-semibold text-white">Intelligent Tab Navigation</h3>
@@ -185,9 +184,9 @@ export default function DatabaseScrapeToolProject() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-red-900/20 to-red-900/10 rounded-xl border border-red-500/20 p-6">
+              <div className="bg-gradient-to-br from-sgp-green/20 to-sgp-green/10 rounded-xl border border-sgp-green/20 p-6">
                 <div className="flex items-center mb-4">
-                  <svg className="w-8 h-8 text-red-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-sgp-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                   <h3 className="text-xl font-semibold text-white">Multi-Language Processing</h3>
@@ -212,9 +211,9 @@ export default function DatabaseScrapeToolProject() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-cyan-900/20 to-cyan-900/10 rounded-xl border border-cyan-500/20 p-6">
+              <div className="bg-gradient-to-br from-sgp-green/20 to-sgp-green/10 rounded-xl border border-sgp-green/20 p-6">
                 <div className="flex items-center mb-4">
-                  <svg className="w-8 h-8 text-cyan-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-sgp-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                   <h3 className="text-xl font-semibold text-white">Exceptional Speed</h3>
@@ -257,6 +256,6 @@ export default function DatabaseScrapeToolProject() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 } 

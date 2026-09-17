@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import AutomationIcon from './AutomationIcon';
 import styles from './HomePage.module.css';
@@ -11,10 +12,12 @@ const links = [
   { href: '/#how-it-works', label: 'How we work' },
   { href: '/about', label: 'About us' },
   { href: '/services', label: 'All services' },
+  { href: '/portfolio', label: 'Client work' },
 ];
 
-/** Homepage-only navigation; the shared header on other pages is unchanged. */
+/** Shared navigation for the homepage and all inner pages. */
 export default function HomeNavigation() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
 
@@ -41,7 +44,8 @@ export default function HomeNavigation() {
               sizes="(max-width: 600px) 218px, 270px" />
           </Link>
           <nav className={styles.desktopNav} aria-label="Main navigation">
-            {links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+            {links.map((link) => <Link key={link.href} href={link.href}
+              aria-current={pathname === link.href ? 'page' : undefined}>{link.label}</Link>)}
             <Link href="/contact" className={styles.navCta}>Let&apos;s talk <AutomationIcon name="arrow" /></Link>
           </nav>
           <button ref={toggle} type="button" className={styles.menuButton}
@@ -54,6 +58,7 @@ export default function HomeNavigation() {
         <nav id="home-mobile-navigation" className={styles.mobileNav}
           aria-label="Mobile navigation" hidden={!open}>
           {links.map((link) => <Link key={link.href} href={link.href}
+            aria-current={pathname === link.href ? 'page' : undefined}
             onClick={() => setOpen(false)}>{link.label}</Link>)}
           <Link href="/contact" onClick={() => setOpen(false)}>Let&apos;s talk automation <AutomationIcon name="arrow" /></Link>
         </nav>

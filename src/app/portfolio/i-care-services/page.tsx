@@ -1,14 +1,13 @@
 'use client';
 
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from "@/components/Header";
 
 export default function ICareServicesPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <SitePage>
       {/* Header */}
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -29,13 +28,13 @@ export default function ICareServicesPage() {
                   <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                     Website Design
                   </span>
-                  <span className="bg-cyan-500/10 text-cyan-400 text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                     Integration
                   </span>
-                  <span className="bg-amber-500/10 text-amber-400 text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                     Bespoke WebTools
                   </span>
-                  <span className="bg-red-500/10 text-red-400 text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                     Automation
                   </span>
                 </div>
@@ -351,6 +350,6 @@ export default function ICareServicesPage() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 }

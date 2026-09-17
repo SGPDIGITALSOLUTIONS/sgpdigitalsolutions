@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import SitePage from '@/components/SitePage';
 import BeforeAfterTable from '@/components/healthcheck/BeforeAfterTable';
 import ExpressInterestForm from '@/components/healthcheck/ExpressInterestForm';
 import GoblinCards from '@/components/healthcheck/GoblinCards';
@@ -9,8 +9,7 @@ import { expressInterest } from '@/lib/healthcheck/content';
 
 export default function AdminWorkflowHealthcheckPage() {
   return (
-    <div className="min-h-screen bg-terminal-black">
-      <Header />
+    <SitePage>
       <HealthcheckHero />
       <VideoPlaceholder />
       <GoblinCards />
@@ -32,6 +31,6 @@ export default function AdminWorkflowHealthcheckPage() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 }

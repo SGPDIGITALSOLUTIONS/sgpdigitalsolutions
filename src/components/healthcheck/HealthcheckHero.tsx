@@ -8,7 +8,7 @@ export default function HealthcheckHero() {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-terminal-cyan font-terminal-mono text-sm uppercase tracking-widest mb-4">
+            <p className="site-eyebrow">
               {hero.subtitle}
             </p>
             <h1 className="section-title text-left mb-6">{hero.title}</h1>
@@ -25,7 +25,7 @@ export default function HealthcheckHero() {
             <p className="text-xl font-black text-terminal-green font-terminal-mono mb-2">
               {whatThisIs.aim}
             </p>
-            <p className="text-2xl font-black text-terminal-yellow font-terminal-mono mb-8">
+            <p className="site-price text-2xl font-black text-terminal-yellow font-terminal-mono mb-8">
               {hero.price} healthcheck
             </p>
             <div className="flex flex-wrap gap-4">

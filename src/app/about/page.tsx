@@ -1,5 +1,6 @@
+import SiteIcon from '@/components/SiteIcon';
+import SitePage from '@/components/SitePage';
 import Image from 'next/image';
-import Header from "@/components/Header"
 
 const values = [
   {
@@ -12,7 +13,7 @@ const values = [
     title: 'AFFORDABLE',
     description: 'Good work shouldn\'t cost a fortune. We price fairly so businesses that actually need help can afford it.',
     icon: '💰',
-    color: 'border-terminal-cyan'
+    color: 'border-terminal-green'
   },
   {
     title: 'EFFICIENT',
@@ -32,14 +33,14 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-terminal-black">
+    <SitePage>
       {/* Header */}
-      <Header />
 
       {/* Hero Section */}
       <section className="py-24 bg-terminal-black terminal-section">
         <div className="container">
           <div className="section-header">
+            <p className="site-eyebrow">THE PEOPLE BEHIND THE PROCESS</p>
             <h1 className="section-title">
               ABOUT SGP DIGITAL SOLUTIONS
             </h1>
@@ -70,7 +71,7 @@ export default function AboutPage() {
                 </div>
                 {/* Terminal Badge */}
                 <div className="absolute -bottom-4 -right-4 bg-terminal-green text-terminal-black px-4 py-2 rounded-terminal border-2 border-terminal-black font-terminal-mono font-bold text-sm">
-                  [FOUNDER]
+                  FOUNDER
                 </div>
               </div>
             </div>
@@ -78,22 +79,19 @@ export default function AboutPage() {
             {/* Founder Info */}
             <div>
               <h2 className="text-4xl md:text-6xl font-black mb-6 text-terminal-white font-terminal-mono uppercase">
-                MEET THE<br/>
-                <span className="text-terminal-green">FOUNDER</span>
+                Meet the<br/>
+                <span className="text-terminal-green">founder</span>
               </h2>
               
-              <div className="terminal-window mb-8">
-                <div className="pt-6">
-                  <div className="terminal-text space-y-3">
-                    <div>$ <span className="text-terminal-white">whoami</span></div>
-                    <div>&gt; <span className="text-terminal-green">Managing Director & Lead Developer</span></div>
-                    <div>&gt; <span className="text-terminal-cyan">I've worked with clunky systems - I fix them</span></div>
-                    <div>&gt; <span className="text-terminal-purple">I turn 'there must be an easier way' into an easier way</span></div>
-                    <div>&gt; <span className="text-terminal-pink">I build tools people don't swear at</span></div>
-                    <div>&gt; <span className="text-terminal-white">I think like a customer but work like a developer</span></div>
-                    <div>&gt; <span className="text-terminal-red">I'm not a fan of jargon</span></div>
-                  </div>
-                </div>
+              <div className="team-profile mb-8">
+                <p className="team-role">Managing Director & Lead Developer</p>
+                <ul>
+                  <li>I've worked with clunky systems - I fix them</li>
+                  <li>I turn 'there must be an easier way' into an easier way</li>
+                  <li>I build tools people don't swear at</li>
+                  <li>I think like a customer but work like a developer</li>
+                  <li>I'm not a fan of jargon</li>
+                </ul>
               </div>
 
               <p className="text-lg text-terminal-white mb-8 font-terminal-sans leading-relaxed">
@@ -106,7 +104,7 @@ export default function AboutPage() {
                 <div className="bg-terminal-black border-2 border-terminal-green rounded-terminal px-4 py-2">
                   <span className="text-terminal-green font-terminal-mono font-bold text-sm">FULL-STACK DEVELOPMENT</span>
                 </div>
-                <div className="bg-terminal-black border-2 border-terminal-cyan rounded-terminal px-4 py-2">
+                <div className="bg-terminal-black border-2 border-terminal-green rounded-terminal px-4 py-2">
                   <span className="text-terminal-cyan font-terminal-mono font-bold text-sm">SYSTEM ARCHITECTURE</span>
                 </div>
                 <div className="bg-terminal-black border-2 border-terminal-purple rounded-terminal px-4 py-2">
@@ -134,7 +132,7 @@ export default function AboutPage() {
             {/* Natasha Image */}
             <div className="text-center lg:text-left">
               <div className="relative inline-block">
-                <div className="w-80 h-96 bg-terminal-black border-4 border-terminal-cyan rounded-neo overflow-hidden neo-terminal-element">
+                <div className="w-80 h-96 bg-terminal-black border-4 border-terminal-green rounded-neo overflow-hidden neo-terminal-element">
                   <Image
                     src="/team/Natasha.jpg"
                     alt="Natasha - Director of Operations and Engagement"
@@ -144,8 +142,8 @@ export default function AboutPage() {
                   />
                 </div>
                 {/* Terminal Badge */}
-                <div className="absolute -bottom-4 -right-4 bg-terminal-cyan text-terminal-black px-4 py-2 rounded-terminal border-2 border-terminal-black font-terminal-mono font-bold text-sm">
-                  [DIRECTOR]
+                <div className="absolute -bottom-4 -right-4 bg-terminal-green text-terminal-black px-4 py-2 rounded-terminal border-2 border-terminal-black font-terminal-mono font-bold text-sm">
+                  DIRECTOR
                 </div>
               </div>
             </div>
@@ -153,20 +151,17 @@ export default function AboutPage() {
             {/* Natasha Info */}
             <div>
               <h3 className="text-4xl md:text-5xl font-black mb-6 text-terminal-white font-terminal-mono uppercase">
-                <span className="text-terminal-cyan">NATASHA</span>
+                <span className="text-terminal-cyan">Natasha</span>
               </h3>
               
-              <div className="terminal-window mb-8">
-                <div className="pt-6">
-                  <div className="terminal-text space-y-3">
-                    <div>$ <span className="text-terminal-white">whoami</span></div>
-                    <div>&gt; <span className="text-terminal-cyan">Director of Operations and Engagement</span></div>
-                    <div>&gt; <span className="text-terminal-green">I ensure seamless project delivery</span></div>
-                    <div>&gt; <span className="text-terminal-purple">I bridge client needs with technical solutions</span></div>
-                    <div>&gt; <span className="text-terminal-pink">I keep the team running like clockwork</span></div>
-                    <div>&gt; <span className="text-terminal-white">I turn chaos into organized success</span></div>
-                  </div>
-                </div>
+              <div className="team-profile mb-8">
+                <p className="team-role">Director of Operations and Engagement</p>
+                <ul>
+                  <li>I ensure seamless project delivery</li>
+                  <li>I bridge client needs with technical solutions</li>
+                  <li>I keep the team running like clockwork</li>
+                  <li>I turn chaos into organized success</li>
+                </ul>
               </div>
 
               <p className="text-lg text-terminal-white mb-8 font-terminal-sans leading-relaxed">
@@ -176,7 +171,7 @@ export default function AboutPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <div className="bg-terminal-black border-2 border-terminal-cyan rounded-terminal px-4 py-2">
+                <div className="bg-terminal-black border-2 border-terminal-green rounded-terminal px-4 py-2">
                   <span className="text-terminal-cyan font-terminal-mono font-bold text-sm">OPERATIONS MANAGEMENT</span>
                 </div>
                 <div className="bg-terminal-black border-2 border-terminal-purple rounded-terminal px-4 py-2">
@@ -215,7 +210,7 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-5xl font-black mb-8 text-terminal-cyan font-terminal-mono uppercase">
                 OUR VISION
               </h2>
-              <div className="bg-terminal-dark border-3 border-terminal-cyan rounded-neo p-8 neo-terminal-element">
+              <div className="bg-terminal-dark border-3 border-terminal-green rounded-neo p-8 neo-terminal-element">
                 <p className="text-lg text-terminal-white font-terminal-sans leading-relaxed">
                   A world where "there must be an easier way" becomes "there is an easier way." 
                   We're not trying to take over the world or make millions - we just want to be 
@@ -246,7 +241,7 @@ export default function AboutPage() {
                 key={index}
                 className={`bg-terminal-black border-3 ${value.color} rounded-neo p-8 neo-terminal-element text-center`}
               >
-                <div className="text-4xl mb-4">{value.icon}</div>
+                <div className="flex justify-center mb-6"><SiteIcon symbol={value.icon} /></div>
                 <h3 className="text-xl font-bold mb-4 text-terminal-white font-terminal-mono uppercase">
                   {value.title}
                 </h3>
@@ -290,25 +285,6 @@ export default function AboutPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-terminal-black text-terminal-white py-16 border-t-3 border-terminal-green terminal-section">
-        <div className="container">
-          <div className="text-center">
-            <h3 className="text-3xl font-black mb-4 font-terminal-mono uppercase terminal-glow" style={{ textShadow: '2px 2px 0px #000000, 0 0 10px rgba(0, 255, 136, 0.8)' }}>
-              SGP.DIGITAL
-            </h3>
-            <p className="text-lg mb-8 font-terminal-sans">Making digital simple for people who need it.</p>
-            <div className="flex justify-center space-x-8">
-              <a href="/" className="text-terminal-white hover:text-terminal-green transition-colors duration-200 font-terminal-mono uppercase tracking-wide">HOME</a>
-              <a href="/services" className="text-terminal-white hover:text-terminal-cyan transition-colors duration-200 font-terminal-mono uppercase tracking-wide">SERVICES</a>
-              <a href="/portfolio" className="text-terminal-white hover:text-terminal-purple transition-colors duration-200 font-terminal-mono uppercase tracking-wide">PORTFOLIO</a>
-              <a href="/contact" className="text-terminal-white hover:text-terminal-pink transition-colors duration-200 font-terminal-mono uppercase tracking-wide">CONTACT</a>
-            </div>
-            <div className="mt-8 pt-8 border-t-2 border-terminal-green">
-              <p className="text-terminal-white/80 font-terminal-mono text-sm">© 2024 SGP DIGITAL SOLUTIONS. ALL RIGHTS RESERVED.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </SitePage>
   );
 } 

@@ -1,13 +1,13 @@
-import Header from "@/components/Header";
+import SitePage from '@/components/SitePage';
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen bg-terminal-black">
-      <Header />
+    <SitePage>
       
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="bg-black/40 border border-white/10 rounded-2xl p-8 md:p-12">
+            <p className="site-eyebrow">WORKING TOGETHER</p>
             <h1 className="text-4xl font-bold text-white mb-8 text-center">
               Terms of Service
             </h1>
@@ -227,6 +227,6 @@ export default function TermsOfService() {
           </div>
         </div>
       </div>
-    </div>
+    </SitePage>
   );
-} 
+}

@@ -1,10 +1,10 @@
 'use client';
 
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Header from "@/components/Header";
 
 const workCategories = [
   'All',
@@ -128,32 +128,12 @@ function PortfolioContent() {
         return project.category === selectedCategory;
       });
 
-  const getCategoryColors = (category: string) => {
-    const colorMap: { [key: string]: { bg: string; text: string; hover: string; border: string } } = {
-      'All': { bg: 'bg-sgp-green', text: 'text-black', hover: 'hover:bg-sgp-green/90', border: 'border-sgp-green' },
-      'Website Design': { bg: 'bg-sgp-green', text: 'text-black', hover: 'hover:bg-sgp-green/90', border: 'border-sgp-green' },
-      'Maintenance': { bg: 'bg-orange-500', text: 'text-white', hover: 'hover:bg-orange-600', border: 'border-orange-500' },
-      'Bespoke WebTools': { bg: 'bg-amber-500', text: 'text-white', hover: 'hover:bg-amber-600', border: 'border-amber-500' },
-      'Integration': { bg: 'bg-cyan-500', text: 'text-white', hover: 'hover:bg-cyan-600', border: 'border-cyan-500' },
-      'Automation': { bg: 'bg-red-500', text: 'text-white', hover: 'hover:bg-red-600', border: 'border-red-500' },
-      'App Development': { bg: 'bg-gradient-to-r from-sgp-green/20 to-sgp-green/10', text: 'text-sgp-green', hover: 'hover:from-sgp-green/30 hover:to-sgp-green/20', border: 'border-sgp-green/30' },
-      'Other': { bg: 'bg-purple-500', text: 'text-white', hover: 'hover:bg-purple-600', border: 'border-purple-500' }
-    };
-    return colorMap[category] || { bg: 'bg-gray-500', text: 'text-white', hover: 'hover:bg-gray-600', border: 'border-gray-500' };
-  };
-
-  const getProjectCategoryColors = (category: string) => {
-    const colorMap: { [key: string]: { bg: string; text: string } } = {
-      'Website Design': { bg: 'bg-sgp-green/10', text: 'text-sgp-green' },
-      'Maintenance': { bg: 'bg-orange-500/10', text: 'text-orange-400' },
-      'Bespoke WebTools': { bg: 'bg-amber-500/10', text: 'text-amber-400' },
-      'Integration': { bg: 'bg-cyan-500/10', text: 'text-cyan-400' },
-      'Automation': { bg: 'bg-red-500/10', text: 'text-red-400' },
-      'App Development': { bg: 'bg-sgp-green/10', text: 'text-sgp-green' },
-      'Other': { bg: 'bg-purple-500/10', text: 'text-purple-400' }
-    };
-    return colorMap[category] || { bg: 'bg-gray-500/10', text: 'text-gray-400' };
-  };
+  const getCategoryColors = (_category: string) => ({
+    bg: 'bg-sgp-green', text: 'text-black', hover: 'hover:bg-sgp-green/90', border: 'border-sgp-green',
+  });
+  const getProjectCategoryColors = (_category: string) => ({
+    bg: 'bg-sgp-green/10', text: 'text-sgp-green',
+  });
 
   return (
     <>
@@ -167,6 +147,7 @@ function PortfolioContent() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
+                  aria-pressed={selectedCategory === category}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-300 relative ${
                     selectedCategory === category
                       ? `${colors.bg} ${colors.text}`
@@ -346,14 +327,14 @@ function PortfolioContent() {
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <SitePage>
       {/* Header */}
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="site-eyebrow">REAL WORK. REAL BUSINESSES.</p>
             <h1 className="text-6xl font-bold text-white mb-6">
               Our Clients
             </h1>
@@ -376,6 +357,6 @@ export default function PortfolioPage() {
       }>
         <PortfolioContent />
       </Suspense>
-    </div>
+    </SitePage>
   );
 } 

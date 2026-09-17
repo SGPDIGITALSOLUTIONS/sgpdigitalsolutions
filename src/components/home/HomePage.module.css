@@ -5,8 +5,8 @@
   --surface: #0a0a0a;
   --line: #282c2a;
   --muted: #b7bdb9;
-  --mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
-  --sans: 'Space Grotesk', Inter, system-ui, sans-serif;
+  --mono: var(--font-jetbrains-mono), 'JetBrains Mono', Consolas, monospace;
+  --sans: var(--font-space-grotesk), 'Space Grotesk', Inter, system-ui, sans-serif;
   background: var(--ink);
   color: #fff;
   font-family: var(--sans);
@@ -38,6 +38,7 @@
 .desktopNav { display: flex; align-items: center; gap: 30px; }
 .desktopNav a { color: #c8cec9; font-size: .875rem; font-weight: 500; white-space: nowrap; transition: color .15s; }
 .desktopNav a:hover { color: var(--green); }
+.desktopNav a[aria-current='page'], .mobileNav a[aria-current='page'] { color: var(--green); }
 .desktopNav .navCta { display: inline-flex; align-items: center; gap: 16px; padding: 12px 19px; background: var(--green); color: #000; font-weight: 700; border-radius: 3px; }
 .desktopNav .navCta:hover { background: #00ffaa; color: #000; }
 .navCta svg { width: 18px; height: 18px; }

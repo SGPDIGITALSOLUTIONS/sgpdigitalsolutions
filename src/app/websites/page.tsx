@@ -1,5 +1,6 @@
 'use client';
 
+import SitePage from '@/components/SitePage';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -26,11 +27,12 @@ const WebsitesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <SitePage>
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="site-eyebrow">BUILT AROUND YOUR BUSINESS</p>
             <h1 className="text-6xl font-bold text-white mb-6">
               Websites That Just Work
             </h1>
@@ -144,14 +146,10 @@ const WebsitesPage = () => {
             </div>
 
             {/* Question Container */}
-            <div className="relative h-48">
+            <div className="min-h-48">
               {/* Step 1 */}
               <div 
-                className={`absolute w-full transition-all duration-500 ${
-                  step === 1 
-                    ? 'opacity-100 translate-x-0' 
-                    : 'opacity-0 -translate-x-full'
-                }`}
+                hidden={step !== 1} className="w-full"
               >
                 <h3 className="text-2xl font-bold text-white mb-8">
                   Do you have an existing website?
@@ -182,13 +180,7 @@ const WebsitesPage = () => {
 
               {/* Step 2 */}
               <div 
-                className={`absolute w-full transition-all duration-500 ${
-                  step === 2 
-                    ? 'opacity-100 translate-x-0' 
-                    : step < 2 
-                      ? 'opacity-0 translate-x-full'
-                      : 'opacity-0 -translate-x-full'
-                }`}
+                hidden={step !== 2} className="w-full"
               >
                 <h3 className="text-2xl font-bold text-white mb-8">
                   Are you happy with your existing site?
@@ -219,11 +211,7 @@ const WebsitesPage = () => {
 
               {/* Step 3 - Final Step */}
               <div 
-                className={`absolute w-full transition-all duration-500 ${
-                  step === 3 
-                    ? 'opacity-100 translate-x-0' 
-                    : 'opacity-0 translate-x-full'
-                }`}
+                hidden={step !== 3} className="w-full"
               >
                 <h3 className="text-2xl font-bold text-white mb-6">
                   {!hasWebsite || (hasWebsite && !isHappy) 
@@ -270,7 +258,7 @@ const WebsitesPage = () => {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 };
 

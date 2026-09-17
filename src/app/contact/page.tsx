@@ -1,7 +1,9 @@
 'use client';
 
+import SiteIcon from '@/components/SiteIcon';
+
+import SitePage from '@/components/SitePage';
 import { useState, type FormEvent } from 'react';
-import Header from '@/components/Header';
 import type { ContactFormValues } from '@/lib/contact/types';
 import { isValidEmail } from '@/lib/healthcheck/validation';
 
@@ -126,12 +128,12 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <SitePage>
 
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="site-eyebrow">LET’S MAKE WORK SIMPLER</p>
             <h1 className="text-6xl font-bold text-white mb-6">Let&apos;s Work Together</h1>
             <p className="text-xl text-white/80 mb-12 leading-relaxed">
               Ready to transform your digital presence? We&apos;d love to hear about your project
@@ -150,7 +152,7 @@ export default function ContactPage() {
                   key={index}
                   className="bg-black/40 border border-white/10 rounded-xl p-6 text-center hover:border-sgp-green/50 transition-colors group"
                 >
-                  <div className="text-4xl mb-4">{method.icon}</div>
+                  <div className="flex justify-center mb-6"><SiteIcon symbol={method.icon} /></div>
                   <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
                   {method.link ? (
                     <a
@@ -401,6 +403,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 }

@@ -1,11 +1,10 @@
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from '@/components/Header';
 
 export default function DannysDecoratingProject() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <SitePage>
 
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
@@ -192,6 +191,6 @@ export default function DannysDecoratingProject() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 }

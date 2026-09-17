@@ -1,11 +1,10 @@
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from "@/components/Header";
 
 export default function HudsonVirtualProject() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <SitePage>
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -289,6 +288,6 @@ export default function HudsonVirtualProject() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 } 

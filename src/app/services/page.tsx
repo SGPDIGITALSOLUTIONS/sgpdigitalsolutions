@@ -1,5 +1,6 @@
+import SiteIcon from '@/components/SiteIcon';
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
-import Header from "@/components/Header";
 
 const services = [
   {
@@ -14,7 +15,7 @@ const services = [
       'Competitors are stealing your customers with their fancy websites',
     ],
     color: 'sgp-green',
-    bgColor: 'bg-sgp-green/10',
+    bgColor: 'bg-sgp-green/5',
     borderColor: 'border-sgp-green/20',
     textColor: 'text-sgp-green',
     category: 'Website Design',
@@ -31,9 +32,9 @@ const services = [
       'You need a calculator/converter/generator that does exactly what YOU need',
     ],
     color: 'amber-500',
-    bgColor: 'bg-amber-500/10',
-    borderColor: 'border-amber-500/20',
-    textColor: 'text-amber-400',
+    bgColor: 'bg-sgp-green/5',
+    borderColor: 'border-sgp-green/20',
+    textColor: 'text-sgp-green',
     category: 'Bespoke WebTools',
   },
   {
@@ -48,9 +49,9 @@ const services = [
       'You\'ve said "there has to be a better way" more than 10 times this week',
     ],
     color: 'red-500',
-    bgColor: 'bg-red-500/10',
-    borderColor: 'border-red-500/20',
-    textColor: 'text-red-400',
+    bgColor: 'bg-sgp-green/5',
+    borderColor: 'border-sgp-green/20',
+    textColor: 'text-sgp-green',
     category: 'Automation',
   },
   {
@@ -65,9 +66,9 @@ const services = [
       'Your workflow looks like a Rube Goldberg machine',
     ],
     color: 'cyan-500',
-    bgColor: 'bg-cyan-500/10',
-    borderColor: 'border-cyan-500/20',
-    textColor: 'text-cyan-400',
+    bgColor: 'bg-sgp-green/5',
+    borderColor: 'border-sgp-green/20',
+    textColor: 'text-sgp-green',
     category: 'Integration',
   },
   {
@@ -82,8 +83,8 @@ const services = [
       'You dream of app store glory and passive income',
     ],
     color: 'sgp-green',
-    bgColor: 'bg-gradient-to-r from-sgp-green/20 to-sgp-green/10',
-    borderColor: 'border-sgp-green/30',
+    bgColor: 'bg-sgp-green/5',
+    borderColor: 'border-sgp-green/20',
     textColor: 'text-sgp-green',
     category: 'App Development',
     comingSoon: true,
@@ -92,14 +93,14 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <SitePage>
       {/* Header */}
-      <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="site-eyebrow">PRACTICAL DIGITAL SOLUTIONS</p>
             <h1 className="text-6xl font-bold text-white mb-6">
               Our Services
             </h1>
@@ -220,7 +221,7 @@ export default function ServicesPage() {
                   key={index}
                   className="bg-black/40 rounded-xl border border-white/10 p-6 text-center hover:border-sgp-green/30 transition-colors"
                 >
-                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <div className="flex justify-center mb-6"><SiteIcon symbol={step.icon} /></div>
                   <div className="bg-sgp-green text-black w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
                     {step.step}
                   </div>
@@ -264,6 +265,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 } 

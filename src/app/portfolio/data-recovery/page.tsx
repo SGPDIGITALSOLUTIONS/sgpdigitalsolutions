@@ -1,24 +1,23 @@
+import SitePage from '@/components/SitePage';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from "@/components/Header";
 
 export default function DataRecoveryPage() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <SitePage>
       
       {/* Hero Section */}
       <section className="pt-32 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-wrap justify-center gap-2 mb-6">
-              <span className="bg-purple-500/10 text-purple-400 text-sm font-medium px-3 py-1 rounded-full">
+              <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                 Data Recovery
               </span>
-              <span className="bg-purple-500/10 text-purple-400 text-sm font-medium px-3 py-1 rounded-full">
+              <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                 Hardware Repair
               </span>
-              <span className="bg-purple-500/10 text-purple-400 text-sm font-medium px-3 py-1 rounded-full">
+              <span className="bg-sgp-green/10 text-sgp-green text-sm font-medium px-3 py-1 rounded-full">
                 System Restoration
               </span>
             </div>
@@ -97,7 +96,7 @@ export default function DataRecoveryPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-black/40 border border-white/10 rounded-xl p-8">
-                <div className="text-purple-400 text-3xl mb-4">🔐</div>
+                <div className="text-sgp-green text-3xl mb-4">🔐</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Password Recovery</h3>
                 <p className="text-white/70 text-base leading-relaxed">
                   Using specialized password recovery tools and techniques to safely bypass the forgotten login credentials 
@@ -106,7 +105,7 @@ export default function DataRecoveryPage() {
               </div>
               
               <div className="bg-black/40 border border-white/10 rounded-xl p-8">
-                <div className="text-purple-400 text-3xl mb-4">🔧</div>
+                <div className="text-sgp-green text-3xl mb-4">🔧</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Hardware Diagnostics</h3>
                 <p className="text-white/70 text-base leading-relaxed">
                   Comprehensive hardware testing and repair to identify and fix the underlying issues 
@@ -115,7 +114,7 @@ export default function DataRecoveryPage() {
               </div>
               
               <div className="bg-black/40 border border-white/10 rounded-xl p-8">
-                <div className="text-purple-400 text-3xl mb-4">💾</div>
+                <div className="text-sgp-green text-3xl mb-4">💾</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Data Extraction</h3>
                 <p className="text-white/70 text-base leading-relaxed">
                   Careful extraction and backup of all family photos and important files, 
@@ -124,7 +123,7 @@ export default function DataRecoveryPage() {
               </div>
               
               <div className="bg-black/40 border border-white/10 rounded-xl p-8">
-                <div className="text-purple-400 text-3xl mb-4">🖥️</div>
+                <div className="text-sgp-green text-3xl mb-4">🖥️</div>
                 <h3 className="text-2xl font-bold text-white mb-4">System Restoration</h3>
                 <p className="text-white/70 text-base leading-relaxed">
                   Complete Windows reinstallation and system optimization, delivering a fully functional laptop 
@@ -178,7 +177,7 @@ export default function DataRecoveryPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {['Data Recovery Tools', 'Windows Installation', 'Hardware Diagnostics', 'Password Recovery'].map((tech, index) => (
                 <div key={index} className="text-center">
-                  <div className="bg-black/40 border border-white/10 rounded-xl p-6 hover:border-purple-400/50 transition-colors">
+                  <div className="bg-black/40 border border-white/10 rounded-xl p-6 hover:border-sgp-green/50 transition-colors">
                     <p className="text-white/80 font-medium">{tech}</p>
                   </div>
                 </div>
@@ -216,6 +215,6 @@ export default function DataRecoveryPage() {
           </div>
         </div>
       </section>
-    </div>
+    </SitePage>
   );
 } 
