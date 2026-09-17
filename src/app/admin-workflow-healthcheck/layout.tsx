@@ -1,14 +1,6 @@
-import type { Metadata } from 'next';
-import { healthcheckMeta } from '@/lib/healthcheck/content';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: healthcheckMeta.title,
-  description: healthcheckMeta.description,
-  openGraph: {
-    title: healthcheckMeta.title,
-    description: healthcheckMeta.description,
-  },
-};
+export const metadata = pageMetadata('/admin-workflow-healthcheck');
 
 export default function AdminWorkflowHealthcheckLayout({
   children,

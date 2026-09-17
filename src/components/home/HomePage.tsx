@@ -51,6 +51,11 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
+            <nav className={styles.serviceLinks} aria-label="Explore automation services">
+              <Link href="/business-automation" className={styles.textLink}>Business automation <AutomationIcon name="arrow" /></Link>
+              <Link href="/microsoft-365-automation" className={styles.textLink}>Microsoft 365 automation <AutomationIcon name="arrow" /></Link>
+              <Link href="/expense-approval-automation" className={styles.textLink}>Expense approval automation <AutomationIcon name="arrow" /></Link>
+            </nav>
           </div>
         </section>
 
@@ -61,7 +66,7 @@ export default function HomePage() {
               <h2 id="workflow-title">One submission.<br /><span>Everything moves.</span></h2>
               <p>An expense claim shouldn&apos;t need an email chain, a missing receipt and three people asking where it&apos;s got to.</p>
               <p>We build the steps around your process. The right information reaches the right people, with approvals and oversight exactly where you need them.</p>
-              <Link href="/contact" className={styles.textLink}>Talk through your workflow <AutomationIcon name="arrow" /></Link>
+              <Link href="/expense-approval-automation" className={styles.textLink}>Explore expense approval automation <AutomationIcon name="arrow" /></Link>
             </div>
             <div className={styles.workflowPanel}>
               <div className={styles.panelLabel}><span className={styles.statusDot} /> EXAMPLE WORKFLOW <span>EXPENSES</span></div>
@@ -115,7 +120,7 @@ export default function HomePage() {
             <div className={styles.otherServices}>
               <div><p className={styles.eyebrow}>BEYOND AUTOMATION</p><h2>Need something else?</h2><p>We also build the digital tools around your business.</p></div>
               <div className={styles.otherLinks}>
-                <Link href="/services">Website design <AutomationIcon name="arrow" /></Link>
+                <Link href="/websites">Website design <AutomationIcon name="arrow" /></Link>
                 <Link href="/services">Bespoke web tools <AutomationIcon name="arrow" /></Link>
                 <Link href="/services">Ongoing support <AutomationIcon name="arrow" /></Link>
               </div>

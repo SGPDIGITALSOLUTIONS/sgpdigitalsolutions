@@ -1,18 +1,13 @@
-import type { Metadata } from 'next';
 import HomePage from '@/components/home/HomePage';
-import { homeMeta } from '@/lib/home/content';
+import { organizationSchema, pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: homeMeta.title,
-  description: homeMeta.description,
-  keywords: homeMeta.keywords,
-  openGraph: {
-    title: homeMeta.title,
-    description: homeMeta.description,
-    type: 'website',
-  },
-};
+export const metadata = pageMetadata('/');
 
 export default function Page() {
-  return <HomePage />;
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{
+      __html: JSON.stringify(organizationSchema).replace(/</g, '\\u003c'),
+    }} />
+    <HomePage />
+  </>;
 }

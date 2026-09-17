@@ -55,6 +55,7 @@
 .page .heroDescription { font-size: 1.1875rem; font-weight: 500; color: #f4f6f5; margin-bottom: 12px; line-height: 1.5; }
 .page .heroBody { max-width: 500px; font-size: 1rem; line-height: 1.8; }
 .actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-top: 28px; }
+.serviceLinks { display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 32px; }
 .primaryButton { display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 16px 22px; min-height: 54px; background: var(--green); color: #000; font-size: .9375rem; font-weight: 700; line-height: 1.5; border: 1px solid var(--green); border-radius: 3px; transition: background .18s, border-color .18s; }
 .primaryButton:hover { background: #00ffaa; border-color: #00ffaa; }
 .primaryButton svg { width: 20px; height: 20px; flex-shrink: 0; }

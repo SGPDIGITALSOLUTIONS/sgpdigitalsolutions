@@ -32,7 +32,7 @@ export default function AutomationVideo() {
       </div>
       <div className={styles.videoFrame}>
         <video ref={videoRef} width="1920" height="1080"
-          poster="/videos/sgp-automation-poster.jpg" controls playsInline preload="none"
+          poster="/_next/image?url=%2Fvideos%2Fsgp-automation-poster.jpg&w=1080&q=75" controls playsInline preload="none"
           tabIndex={0} aria-label="SGP Digital Solutions automation film"
           aria-describedby="sgp-film-overview"
           onPlay={() => { setStarted(true); setError(false); }}
@@ -42,7 +42,7 @@ export default function AutomationVideo() {
         </video>
         {!started && !error && (
           <button type="button" className={styles.playButton} onClick={play}
-            aria-label="Play the SGP automation film with sound">
+            aria-label="Watch the film: SGP automation with sound">
             <AutomationIcon name="play" />
             <span>Watch the film</span>
           </button>

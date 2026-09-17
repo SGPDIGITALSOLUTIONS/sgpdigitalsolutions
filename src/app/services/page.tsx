@@ -106,7 +106,7 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-xl text-white/80 mb-12 leading-relaxed">
-              Comprehensive digital solutions to transform your business with cutting-edge technology and expert development.
+              Less repetitive admin, clearer websites and tools that fit the way you work. Explore practical digital services for your business.
             </p>
             <BrochureDownload className="btn btn-outline" />
           </div>
@@ -116,6 +116,19 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
+          <h2 className="mb-6">Business automation, explained.</h2>
+          <p className="mb-8 max-w-3xl">Start with the work that is slowing you down. See how we can help with everyday admin, your Microsoft tools or expense claims.</p>
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {[
+              { href: '/business-automation', title: 'Business automation', description: 'Connect reporting, reminders and handovers so your team spends less time repeating the same steps.' },
+              { href: '/microsoft-365-automation', title: 'Microsoft 365 automation', description: 'Bring Forms, SharePoint, Teams and Excel into a shared workflow with Power Automate.' },
+              { href: '/expense-approval-automation', title: 'Expense approval automation', description: 'Keep receipts, claim details and decisions together, with a clear route from submission to finance.' },
+            ].map(service => <article key={service.href} className="rounded-xl border border-white/10 p-8">
+              <h3 className="mb-4">{service.title}</h3><p className="mb-6">{service.description}</p>
+              <Link href={service.href} className="text-terminal-green underline underline-offset-4">Explore {service.title.toLowerCase()} →</Link>
+            </article>)}
+          </div>
+          <h2 className="mb-8">More ways we can help.</h2>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
@@ -247,7 +260,7 @@ export default function ServicesPage() {
                 Ready to Transform Your Business?
               </h2>
               <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-                Let's discuss how our services can help you achieve your goals with cutting-edge technology solutions.
+                Tell us what you need a hand with. We’ll help you work out a sensible next step and agree the scope before we start.
               </p>
               <div className="flex justify-center gap-4 flex-wrap">
                 <Link

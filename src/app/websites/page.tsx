@@ -19,9 +19,7 @@ const WebsitesPage = () => {
     {
       title: 'Hudson Virtual Business Services',
       description: 'Modern virtual support services platform',
-      image: '/portfolio/hudson-virtual.png',
-      link: 'https://hudsonvirtual-811e84806688.herokuapp.com/',
-      status: 'In Development'
+      image: '/portfolio/hudsonvirtualfinal.png',
     },
     // Add more items here as needed
   ];
@@ -83,7 +81,7 @@ const WebsitesPage = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {portfolioItems.map((item, index) => (
                 <div key={index} className="group relative">
-                  <div className="aspect-video bg-black/40 rounded-xl border border-white/10 overflow-hidden">
+                  <div className="relative aspect-video bg-black/40 rounded-xl border border-white/10 overflow-hidden">
                     {!failedImages.has(index) ? (
                       <Image
                         src={item.image}
@@ -92,7 +90,6 @@ const WebsitesPage = () => {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         priority={index === 0}
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        quality={100}
                         onError={() => handleImageError(index)}
                       />
                     ) : (
@@ -104,9 +101,6 @@ const WebsitesPage = () => {
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                         <p className="text-white/70 mb-4">{item.description}</p>
-                        {item.status && (
-                          <span className="text-sgp-green text-sm">{item.status}</span>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -220,7 +214,7 @@ const WebsitesPage = () => {
                 </h3>
                 <p className="text-white/70 text-lg mb-8">
                   {!hasWebsite 
-                    ? "Try a free concept design using WebInspire by SGP"
+                    ? "Tell us what your business needs and we’ll help you plan a website that fits."
                     : isHappy 
                       ? "We can help with maintenance, updates, and new features"
                       : "Let's transform your online presence with a fresh design"}
@@ -235,11 +229,11 @@ const WebsitesPage = () => {
                   </Link>
                   {(!hasWebsite || (hasWebsite && !isHappy)) && (
                     <Link 
-                      href="/webinspire"
+                      href="/portfolio?category=Websites"
                       className="flex-1 border border-sgp-green text-sgp-green text-center py-4 rounded-xl 
                         transition-all duration-300 hover:scale-105 hover:bg-sgp-green hover:text-black"
                     >
-                      Try WebInspire
+                      See website examples
                     </Link>
                   )}
                 </div>
@@ -249,7 +243,7 @@ const WebsitesPage = () => {
             {/* Back Button */}
             {step > 1 && (
               <button
-                onClick={() => setStep(step - 1)}
+                onClick={() => setStep(step === 3 && !hasWebsite ? 1 : step - 1)}
                 className="mt-8 text-white/50 hover:text-white transition-colors"
               >
                 ← Back to previous question
@@ -262,4 +256,4 @@ const WebsitesPage = () => {
   );
 };
 
-export default WebsitesPage; 
+export default WebsitesPage;
