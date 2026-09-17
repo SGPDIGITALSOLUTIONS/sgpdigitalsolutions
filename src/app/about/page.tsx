@@ -62,7 +62,7 @@ export default function AboutPage() {
                 <div className="w-80 h-96 bg-terminal-black border-4 border-terminal-green rounded-neo overflow-hidden neo-terminal-element">
                   <Image
                     src="/team/founder.jpg"
-                    alt="Founder & Director"
+                    alt="Stephen Pratt, Founder and Managing Director of SGP Digital Solutions"
                     width={320}
                     height={384}
                     className="w-full h-full object-cover"
@@ -78,9 +78,9 @@ export default function AboutPage() {
 
             {/* Founder Info */}
             <div>
+              <p className="site-eyebrow">Meet the founder</p>
               <h2 className="text-4xl md:text-6xl font-black mb-6 text-terminal-white font-terminal-mono uppercase">
-                Meet the<br/>
-                <span className="text-terminal-green">founder</span>
+                Stephen <span className="text-terminal-green">Pratt</span>
               </h2>
               
               <div className="team-profile mb-8">
@@ -287,4 +287,4 @@ export default function AboutPage() {
       {/* Footer */}
     </SitePage>
   );
-} 
+}
