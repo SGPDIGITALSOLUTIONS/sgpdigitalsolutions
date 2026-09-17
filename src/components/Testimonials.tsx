@@ -12,7 +12,7 @@ Beyond his technical proficiency, Steve demonstrates proactive, reliable, people
 
 I wholeheartedly recommend Steve to those seeking to incorporate technology solutions.`,
     author: "Tony Wing",
-    role: "Vision Care for Homeless People",
+    role: "Vision Care Charity",
     image: "/testimonials/sarah.jpg",
   },
   {
@@ -95,4 +95,4 @@ export default function Testimonials() {
       </div>
     </section>
   );
-} 
+}

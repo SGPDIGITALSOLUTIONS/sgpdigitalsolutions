@@ -104,7 +104,7 @@ export default function HomePage() {
               <blockquote><p>&ldquo;Collaborating with Steve has been transformative for our charity.
                 His expertise in technology and automation has not only streamlined our workflows but
                 also uncovered opportunities for efficiencies in our operation not previously considered.&rdquo;</p></blockquote>
-              <figcaption><span className={styles.authorMark} aria-hidden="true">TW</span><div><strong>Tony Wing</strong><span>Vision Care for Homeless People</span></div></figcaption>
+              <figcaption><span className={styles.authorMark} aria-hidden="true">TW</span><div><strong>Tony Wing</strong><span>Vision Care Charity</span></div></figcaption>
             </figure>
           </div>
         </section>
