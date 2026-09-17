@@ -1,423 +1,144 @@
-'use client';
-
 import Link from 'next/link';
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import AdminHealthcheckPromo from '@/components/home/AdminHealthcheckPromo';
-import { footerTagline, pillars, stephenIntro } from '@/lib/home/content';
+import HomeNavigation from './HomeNavigation';
+import AutomationVideo from './AutomationVideo';
+import AutomationIcon from './AutomationIcon';
+import { automationServices, deliverySteps, footerTagline, workflowSteps } from '@/lib/home/content';
+import styles from './HomePage.module.css';
 
-const testimonials = [
-  {
-    quote:
-      'Collaborating with Steve has been transformative for our charity. His expertise in technology and automation has not only streamlined our workflows but also uncovered opportunities for efficiencies in our operation not previously considered. From implementing online booking to automating numerous repetitive tasks, Steve has consistently delivered high quality solutions with clear communication and quick turnaround times.',
-    author: 'Tony Wing',
-    role: 'Vision Care for Homeless People',
-    label: 'Saved hours on repetitive admin',
-  },
-  {
-    quote:
-      'Steve transformed my old website into a modern, professional site that truly reflects my brand. Patient, collaborative, and full of creative ideas.',
-    author: 'Natasha Hudson',
-    role: 'Hudson Virtual Business Solutions',
-  },
-  {
-    quote:
-      'I had all my childrens baby photos saved on a laptop which had been broken for years, I also had lost the password for it as it had been so long. Steve managed to get my photos back aswell as fix my laptop and reinstall windows, I now have a working laptop again!',
-    author: 'Lana',
-    role: 'Personal Data Recovery Client',
-  },
-];
-
+// Server-rendered content. Only the navigation and video controls require client JS.
 export default function HomePage() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-
   return (
-    <div className="min-h-screen bg-terminal-black">
-      <Header />
-      <Hero />
-      <AdminHealthcheckPromo />
-
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Hi, I&apos;m Stephen — welcome to SGP Digital Solutions.
-                </h2>
-                <div className="space-y-4 text-white/80 leading-relaxed">
-                  <p>
-                    If you&apos;re here, chances are you&apos;re trying to fix something
-                    that&apos;s slow, clunky, or just plain annoying. Or maybe you don&apos;t
-                    know why you&apos;re here... In which case, drop me a message anyway!
-                  </p>
-                  <p>
-                    Maybe your website&apos;s out of date. Maybe you&apos;re wasting time on
-                    manual tasks. Maybe you&apos;re juggling too many systems that don&apos;t
-                    talk to each other.
-                  </p>
-                  <p className="text-sgp-green font-medium">That&apos;s where we come in.</p>
-                  <p>{stephenIntro.healthcheckNote}</p>
-                  <p>
-                    At SGP, we build clean, affordable digital solutions that work, without
-                    the jargon, the drama, or the agency price tag. Just smart tools for
-                    people doing the real work.
-                  </p>
-                </div>
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <p className="text-sgp-green font-semibold">Stephen Pratt</p>
-                  <p className="text-white/60">Managing Director & Lead Developer</p>
-                </div>
+    <div className={styles.page}>
+      <HomeNavigation />
+      <main id="main-content">
+        <section className={styles.hero} aria-labelledby="home-title">
+          <div className={`${styles.container} ${styles.heroGrid}`}>
+            <div className={styles.heroCopy}>
+              <p className={styles.eyebrow}><span className={styles.statusDot} /> BUSINESS AUTOMATION, BUILT AROUND YOU</p>
+              <h1 id="home-title" className={styles.heroTitle}>Less admin.<span>More business.</span></h1>
+              <p className={styles.heroDescription}>Your team wasn&apos;t hired to copy and paste.</p>
+              <p className={styles.heroBody}>We connect your systems and automate the repetitive work,
+                so you can stop chasing, updating and retyping. And get back to what you do best.</p>
+              <div className={styles.actions}>
+                <Link href="/contact" className={styles.primaryButton}>Let&apos;s talk automation <AutomationIcon name="arrow" /></Link>
+                <a href="#automation" className={styles.textLink}>See what we can automate <span aria-hidden="true">↘</span></a>
               </div>
-
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative">
-                  <img
-                    src="/images/SGP.jpg"
-                    alt="Stephen Pratt - Managing Director & Lead Developer at SGP Digital Solutions"
-                    className="rounded-2xl shadow-2xl max-w-md w-full"
-                  />
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sgp-green/10 to-transparent pointer-events-none" />
-                </div>
-              </div>
+              <p className={styles.heroNote}><AutomationIcon name="check" /> Practical solutions. Clear scope. No unnecessary faff.</p>
             </div>
+            <AutomationVideo />
           </div>
-        </div>
-      </section>
+          <div className={`${styles.container} ${styles.toolsStrip}`}>
+            <p>FAMILIAR TOOLS. LESS MANUAL WORK.</p>
+            <div aria-label="Tools we work with"><span>Microsoft 365</span><span>Power Automate</span><span>SharePoint</span><span>Teams</span><span>Excel</span></div>
+          </div>
+        </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-8">
-              Why Businesses Choose SGP Digital
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {pillars.map((pillar) => (
-                <div key={pillar.title}>
-                  <div className="text-3xl mb-3">{pillar.icon}</div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{pillar.title}</h3>
-                  <p className="text-white/60 text-sm">{pillar.description}</p>
-                </div>
+        <section id="automation" className={styles.section} aria-labelledby="automation-title">
+          <div className={styles.container}>
+            <div className={styles.sectionHeading}>
+              <div><p className={styles.eyebrow}>WHAT WE AUTOMATE</p>
+                <h2 id="automation-title">The work that repeats.<br /><span>The time you get back.</span></h2></div>
+              <p>Start with the process that&apos;s slowing you down. We&apos;ll help turn it into something that works for you, not against you.</p>
+            </div>
+            <div className={styles.serviceGrid}>
+              {automationServices.map((service) => (
+                <article key={service.number} className={styles.serviceCard}>
+                  <div className={styles.cardTop}><AutomationIcon name={service.icon} /><span>{service.number}</span></div>
+                  <h3>{service.title}</h3><p>{service.description}</p>
+                  <p className={styles.serviceExample}>{service.example}</p>
+                </article>
               ))}
             </div>
+          </div>
+        </section>
 
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-8">What Our Clients Say</h3>
+        <section className={`${styles.section} ${styles.workflowSection}`} aria-labelledby="workflow-title">
+          <div className={`${styles.container} ${styles.workflowGrid}`}>
+            <div className={styles.workflowCopy}>
+              <p className={styles.eyebrow}>FROM CHASING TO FLOWING</p>
+              <h2 id="workflow-title">One submission.<br /><span>Everything moves.</span></h2>
+              <p>An expense claim shouldn&apos;t need an email chain, a missing receipt and three people asking where it&apos;s got to.</p>
+              <p>We build the steps around your process. The right information reaches the right people, with approvals and oversight exactly where you need them.</p>
+              <Link href="/contact" className={styles.textLink}>Talk through your workflow <AutomationIcon name="arrow" /></Link>
+            </div>
+            <div className={styles.workflowPanel}>
+              <div className={styles.panelLabel}><span className={styles.statusDot} /> EXAMPLE WORKFLOW <span>EXPENSES</span></div>
+              <ol className={styles.workflowSteps}>
+                {workflowSteps.map((step, index) => (
+                  <li key={step.title}><span className={styles.stepMarker}>{String(index + 1).padStart(2, '0')}</span>
+                    <div><h3>{step.title}</h3><p>{step.description}</p></div><AutomationIcon name="check" />
+                  </li>
+                ))}
+              </ol>
+              <p className={styles.workflowFootnote}>Illustrative process. Steps and integrations are tailored to your setup.</p>
+            </div>
+          </div>
+        </section>
 
-              <div className="relative">
-                <div className="relative min-h-[200px]">
-                  {testimonials.map((testimonial, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 transition-all duration-500 ${
-                        index === activeTestimonial
-                          ? 'opacity-100 translate-x-0'
-                          : 'opacity-0 translate-x-8'
-                      }`}
-                    >
-                      <div className="bg-black/40 border border-white/10 rounded-xl p-6">
-                        {'label' in testimonial && testimonial.label && (
-                          <p className="text-terminal-cyan text-xs font-terminal-mono uppercase tracking-wide mb-3">
-                            {testimonial.label}
-                          </p>
-                        )}
-                        <p className="text-white/80 italic mb-4 leading-relaxed">
-                          &ldquo;{testimonial.quote}&rdquo;
-                        </p>
-                        <div className="text-center">
-                          <p className="text-sgp-green font-medium">{testimonial.author}</p>
-                          <p className="text-white/60 text-sm">{testimonial.role}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        <section id="how-it-works" className={styles.section} aria-labelledby="process-title">
+          <div className={styles.container}>
+            <div className={styles.sectionHeading}>
+              <div><p className={styles.eyebrow}>HOW WE WORK</p><h2 id="process-title">Your process.<br /><span>Made simpler.</span></h2></div>
+              <p>Not another system for the sake of it. A practical solution, built with you and explained properly.</p>
+            </div>
+            <div className={styles.processGrid}>
+              {deliverySteps.map((step) => <article key={step.number} className={styles.processCard}>
+                <span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p>
+              </article>)}
+            </div>
+          </div>
+        </section>
 
-                <button
-                  onClick={() =>
-                    setActiveTestimonial(
-                      activeTestimonial === 0 ? testimonials.length - 1 : activeTestimonial - 1
-                    )
-                  }
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-8 h-8 bg-sgp-green/20 border border-sgp-green/40 rounded-full flex items-center justify-center hover:bg-sgp-green/30 transition-colors"
-                  aria-label="Previous testimonial"
-                >
-                  <svg className="w-4 h-4 text-sgp-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
+        <section className={styles.proofSection} aria-labelledby="proof-title">
+          <div className={`${styles.container} ${styles.proofGrid}`}>
+            <div><p className={styles.eyebrow}>REAL WORK. REAL FEEDBACK.</p><h2 id="proof-title">Less admin.<br /><span>More impact.</span></h2>
+              <Link href="/portfolio" className={styles.textLink}>Explore our client work <AutomationIcon name="arrow" /></Link></div>
+            <figure className={styles.quote}>
+              <blockquote><p>&ldquo;Collaborating with Steve has been transformative for our charity.
+                His expertise in technology and automation has not only streamlined our workflows but
+                also uncovered opportunities for efficiencies in our operation not previously considered.&rdquo;</p></blockquote>
+              <figcaption><span className={styles.authorMark} aria-hidden="true">TW</span><div><strong>Tony Wing</strong><span>Vision Care for Homeless People</span></div></figcaption>
+            </figure>
+          </div>
+        </section>
 
-                <button
-                  onClick={() =>
-                    setActiveTestimonial(
-                      activeTestimonial === testimonials.length - 1 ? 0 : activeTestimonial + 1
-                    )
-                  }
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-8 h-8 bg-sgp-green/20 border border-sgp-green/40 rounded-full flex items-center justify-center hover:bg-sgp-green/30 transition-colors"
-                  aria-label="Next testimonial"
-                >
-                  <svg className="w-4 h-4 text-sgp-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-
-                <div className="flex justify-center mt-6 space-x-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonial(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === activeTestimonial
-                          ? 'bg-sgp-green w-6'
-                          : 'bg-white/30 hover:bg-sgp-green/50'
-                      }`}
-                      aria-label={`View testimonial ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                <h4 className="text-xl font-semibold text-white mb-4">Ready to join them?</h4>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href="/admin-workflow-healthcheck"
-                    className="inline-flex items-center justify-center bg-terminal-yellow text-terminal-black px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-colors"
-                  >
-                    Start with the £50 healthcheck
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center border border-sgp-green text-sgp-green px-8 py-3 rounded-full font-semibold hover:bg-sgp-green hover:text-black transition-colors"
-                  >
-                    Book a free scoping call
-                  </Link>
-                </div>
+        <section className={styles.section} aria-labelledby="healthcheck-title">
+          <div className={styles.container}>
+            <div className={styles.healthcheck}>
+              <div className={styles.healthcheckPrice}><span>A SIMPLE STARTING POINT</span><strong>£50</strong><span>Admin &amp; Workflow Healthcheck</span></div>
+              <div><h2 id="healthcheck-title">Start with one process.</h2>
+                <p>Not sure what to automate? Our healthcheck reviews one admin-heavy process and identifies practical next steps before you commit to a bigger build.</p>
+                <Link href="/admin-workflow-healthcheck" className={styles.textLink}>Explore the healthcheck <AutomationIcon name="arrow" /></Link></div>
+            </div>
+            <div className={styles.otherServices}>
+              <div><p className={styles.eyebrow}>BEYOND AUTOMATION</p><h2>Need something else?</h2><p>We also build the digital tools around your business.</p></div>
+              <div className={styles.otherLinks}>
+                <Link href="/services">Website design <AutomationIcon name="arrow" /></Link>
+                <Link href="/services">Bespoke web tools <AutomationIcon name="arrow" /></Link>
+                <Link href="/services">Ongoing support <AutomationIcon name="arrow" /></Link>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-16 bg-white/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Explore Our Work & Services
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Link
-                href="/admin-workflow-healthcheck"
-                className="bg-terminal-yellow/10 border-2 border-terminal-yellow/40 rounded-xl p-8 hover:border-terminal-yellow transition-all duration-300 group md:col-span-2"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-terminal-yellow">
-                    Admin &amp; Workflow Healthcheck
-                  </h3>
-                  <svg className="w-6 h-6 text-terminal-yellow group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-                <p className="text-white/80 mb-4">
-                  A focused £50 review of one admin-heavy process. No jargon. No nonsense.
-                </p>
-                <div className="text-terminal-yellow font-medium">Find the faff →</div>
-              </Link>
-
-              <Link
-                href="/portfolio"
-                className="bg-black/40 border border-white/10 rounded-xl p-8 hover:border-sgp-green/50 transition-all duration-300 group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-white">Our Portfolio</h3>
-                  <svg className="w-6 h-6 text-sgp-green group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-                <p className="text-white/70 mb-4">
-                  See real projects we&apos;ve delivered for businesses like Hudson Virtual,
-                  Heartwood Wellbeing, and more.
-                </p>
-                <div className="text-sgp-green font-medium">View Client Success Stories →</div>
-              </Link>
-
-              <Link
-                href="/services"
-                className="bg-black/40 border border-white/10 rounded-xl p-8 hover:border-sgp-green/50 transition-all duration-300 group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-white">Full Services</h3>
-                  <svg className="w-6 h-6 text-sgp-green group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-                <p className="text-white/70 mb-4">
-                  Websites, automation, bespoke webtools, and ongoing support — all explained
-                  plainly.
-                </p>
-                <div className="text-sgp-green font-medium">Explore All Services →</div>
-              </Link>
-
-              <Link
-                href="/about"
-                className="bg-black/40 border border-white/10 rounded-xl p-8 hover:border-sgp-green/50 transition-all duration-300 group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-white">About SGP Digital</h3>
-                  <svg className="w-6 h-6 text-sgp-green group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-                <p className="text-white/70 mb-4">
-                  Learn about our mission to make professional digital services accessible to
-                  everyone.
-                </p>
-                <div className="text-sgp-green font-medium">Our Story →</div>
-              </Link>
-
-              <Link
-                href="/contact"
-                className="bg-sgp-green/10 border border-sgp-green/30 rounded-xl p-8 hover:border-sgp-green/50 transition-all duration-300 group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-sgp-green">Start a Project</h3>
-                  <svg className="w-6 h-6 text-sgp-green group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-                <p className="text-white/80 mb-4">
-                  Need a website, integration, or bespoke tool? Get in touch and get your time
-                  back on the work that matters.
-                </p>
-                <div className="text-sgp-green font-bold">Contact Us →</div>
-              </Link>
+        <section className={styles.finalSection} aria-labelledby="contact-title">
+          <div className={`${styles.container} ${styles.finalCta}`}>
+            <p className={styles.eyebrow}>LET&apos;S GIVE YOU SOME TIME BACK</p>
+            <h2 id="contact-title">What&apos;s eating into<br /><span>your week?</span></h2>
+            <p>Tell us about the task you&apos;re tired of doing.<br />We&apos;ll help you work out a better way.</p>
+            <div className={styles.actions}>
+              <Link href="/contact" className={styles.primaryButton}>Let&apos;s talk automation <AutomationIcon name="arrow" /></Link>
+              <a href="mailto:hello@sgpdigitalsolutions.co.uk" className={styles.textLink}>Or email us directly <AutomationIcon name="arrow" /></a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-sgp-green/10 to-sgp-green/5 border border-sgp-green/20 rounded-2xl p-8 text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Need something custom?</h2>
-              <p className="text-white/80 text-lg mb-8">
-                Every business is unique. If you don&apos;t see exactly what you need, just ask
-                us. We love solving unusual problems and building bespoke solutions.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="mailto:hello@sgpdigitalsolutions.co.uk?subject=Custom Project Inquiry"
-                  className="bg-sgp-green text-black px-8 py-3 rounded-full font-semibold hover:bg-sgp-green/90 transition-colors"
-                >
-                  📧 Email Your Ideas
-                </a>
-                <a
-                  href="https://wa.me/447516735792?text=Hi,%20I'd%20like%20to%20discuss%20a%20custom%20project"
-                  className="border border-sgp-green text-sgp-green px-8 py-3 rounded-full font-semibold hover:bg-sgp-green hover:text-black transition-colors"
-                >
-                  💬 WhatsApp Us
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-black border-t border-white/10 pt-16 pb-8">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              <div className="lg:col-span-2">
-                <h3 className="text-2xl font-bold text-sgp-green mb-4">SGP Digital Solutions</h3>
-                <p className="text-white/70 mb-6 leading-relaxed">
-                  {footerTagline}
-                  <br />
-                  Affordable websites, automation, and tech support that actually makes sense.
-                </p>
-
-                <div className="mb-6 space-y-2">
-                  <div className="flex items-center text-sm text-white/60">
-                    <svg className="w-4 h-4 text-sgp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Fully Insured Business
-                  </div>
-                  <div className="flex items-center text-sm text-white/60">
-                    <svg className="w-4 h-4 text-sgp-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.5-4.5L21 12l-6.5 6.5M3 12l6.5-6.5L15 12l-6.5 6.5L3 12z" />
-                    </svg>
-                    ICO Registered (Data Protection)
-                  </div>
-                </div>
-
-                <div className="flex space-x-4">
-                  <a
-                    href="https://www.linkedin.com/company/sgp-digital-solutions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center hover:bg-sgp-green/20 hover:border-sgp-green/40 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-                <ul className="space-y-2">
-                  <li><Link href="/" className="text-white/60 hover:text-sgp-green transition-colors">Home</Link></li>
-                  <li><Link href="/services" className="text-white/60 hover:text-sgp-green transition-colors">Services</Link></li>
-                  <li><Link href="/portfolio" className="text-white/60 hover:text-sgp-green transition-colors">Portfolio</Link></li>
-                  <li><Link href="/about" className="text-white/60 hover:text-sgp-green transition-colors">About</Link></li>
-                  <li><Link href="/contact" className="text-white/60 hover:text-sgp-green transition-colors">Contact</Link></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-4">Get in Touch</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 text-sgp-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <a href="mailto:hello@sgpdigitalsolutions.co.uk" className="text-white/70 hover:text-sgp-green transition-colors">
-                      hello@sgpdigitalsolutions.co.uk
-                    </a>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 text-sgp-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <a href="https://wa.me/447516735792" className="text-white/70 hover:text-sgp-green transition-colors">
-                      whatsapp me
-                    </a>
-                  </div>
-                  <div className="text-white/50 text-sm mt-2">⚡ Response within 24 hours</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-white/50 text-sm">
-                © 2025 SGP Digital Solutions. All rights reserved.
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link href="/privacy" className="text-white/50 hover:text-sgp-green transition-colors text-sm">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className="text-white/50 hover:text-sgp-green transition-colors text-sm">
-                  Terms of Service
-                </Link>
-              </div>
-            </div>
-          </div>
+        </section>
+      </main>
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <div className={styles.footerTop}><div><strong>SGP DIGITAL SOLUTIONS</strong><p>{footerTagline}</p></div>
+            <nav aria-label="Footer navigation"><Link href="/about">About us</Link><Link href="/services">All services</Link><Link href="/portfolio">Client work</Link><Link href="/contact">Contact</Link></nav></div>
+          <div className={styles.footerBottom}><p>© {new Date().getFullYear()} SGP Digital Solutions. All rights reserved.</p>
+            <div><Link href="/privacy">Privacy Policy</Link><Link href="/terms">Terms of Service</Link></div></div>
         </div>
       </footer>
     </div>

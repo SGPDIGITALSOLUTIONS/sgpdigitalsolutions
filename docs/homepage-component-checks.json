@@ -1,0 +1,94 @@
+{
+  "environment": "Chromium; React 18.2 component preview with Next Link/Image adapters (not a full Next.js production build)",
+  "viewport_checks": [
+    {
+      "viewport": 320,
+      "scroll": 320,
+      "h1": 280,
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "scroll": 375,
+      "h1": 335,
+      "pass": true
+    },
+    {
+      "viewport": 390,
+      "scroll": 390,
+      "h1": 350,
+      "pass": true
+    },
+    {
+      "viewport": 549,
+      "scroll": 549,
+      "h1": 509,
+      "pass": true
+    },
+    {
+      "viewport": 768,
+      "scroll": 768,
+      "h1": 704,
+      "pass": true
+    },
+    {
+      "viewport": 1024,
+      "scroll": 1024,
+      "h1": 800,
+      "pass": true
+    },
+    {
+      "viewport": 1080,
+      "scroll": 1080,
+      "h1": 473.0625,
+      "pass": true
+    },
+    {
+      "viewport": 1280,
+      "scroll": 1280,
+      "h1": 542.296875,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "scroll": 1440,
+      "h1": 588.453125,
+      "pass": true
+    },
+    {
+      "viewport": 1920,
+      "scroll": 1920,
+      "h1": 588.453125,
+      "pass": true
+    }
+  ],
+  "checks": {
+    "single_h1": true,
+    "six_automation_categories": true,
+    "preload_none_before_play": true,
+    "video_not_decoded_before_play": true,
+    "no_autoplay": true,
+    "native_controls": true,
+    "all_same_page_anchors_exist": true,
+    "mobile_menu_opens": true,
+    "escape_closes_menu": true,
+    "escape_restores_focus": true,
+    "anchor_closes_menu": true,
+    "video_playback": true,
+    "full_length_and_resolution": true,
+    "play_overlay_removed": true,
+    "user_initiated_audio_unmuted": true,
+    "pause_works": true,
+    "media_error_fallback": true,
+    "media_error_direct_link": true
+  },
+  "video_state": {
+    "currentTime": 0.522702,
+    "duration": 72.5,
+    "muted": false,
+    "paused": false,
+    "width": 1920,
+    "height": 1080
+  },
+  "runtime_errors": []
+}

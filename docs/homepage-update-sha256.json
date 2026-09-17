@@ -1,0 +1,13 @@
+{
+  "README-UPDATE.txt": "078ca008b56b136232d7f298f7b999c6969ce7665ac6118a8ef13615c478defb",
+  "docs/AUTOMATION_HOMEPAGE_UPDATE.md": "56dbaaa91bb5f4cab09345f9b58b5fde7094ab5c569c014f82399661565e5c20",
+  "docs/homepage-component-checks.json": "d9770257ac736b24d87d15be827cec34da8a0c4726e4acec70f4a0f688daa7f5",
+  "public/videos/sgp-automation-poster.jpg": "bbb63c4a540894c29c6f93aa377e9211ea9d3cbf1f2624b23c41f6582001037b",
+  "public/videos/sgp-automation.mp4": "bbb05da4f529baf41e36c89f3afa9e7080d47c5eac7dba9bd626620c5fbf484b",
+  "src/components/home/AutomationIcon.tsx": "3731bc553da38ac3acb103f291641cc6c00ce3c5a1b78e3085bd6fda1133aa7b",
+  "src/components/home/AutomationVideo.tsx": "11ff93b46f28ed4568eb557f5e1a5fad7e3e74b325e571b7c69a1f01fa8ed665",
+  "src/components/home/HomeNavigation.tsx": "3b0e995e48ed23fd1c87d3c8f356ff1e06d8c2cd1fb3d6f5b2d8ac0f7dd6c7ea",
+  "src/components/home/HomePage.module.css": "535a848c6f1eb93aebc8b8f4d37de33186b8a11006e94d72bbf1a792053e8b03",
+  "src/components/home/HomePage.tsx": "71fbfc0041d4419c92b4ee48ee26426ffd1bbdb9a6e2ed46aef4236c1d450908",
+  "src/lib/home/content.ts": "8892204af2c52c6cbbb83ea31a291e5a7fa8aa19992156590409a8db1c2b8c1a"
+}
