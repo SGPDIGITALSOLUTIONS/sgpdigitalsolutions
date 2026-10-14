@@ -13,16 +13,16 @@ export const sitePages = {
     description: 'Meet Stephen Pratt and the team behind SGP Digital Solutions. Practical business automation, websites and digital support, with clear advice and no jargon.',
   },
   '/services': {
-    title: 'Automation & Website Services | SGP Digital Solutions',
-    description: 'Explore business automation, Microsoft 365 workflows, website design and bespoke web tools. Practical digital services built around the way your business works.',
+    title: 'Small Business Automation Services | SGP Digital Solutions',
+    description: 'Reduce repetitive admin with business automation, Microsoft 365 workflows and expense approvals. Start with a £50 Admin & Workflow Healthcheck.',
   },
   '/contact': {
     title: 'Contact SGP Digital Solutions | Talk Through Your Project',
     description: 'Tell SGP about the admin task, website or workflow you need help with. Contact us by email, WhatsApp or our enquiry form to discuss a practical next step.',
   },
   '/pricing': {
-    title: 'Project Pricing & Payment Options | SGP Digital Solutions',
-    description: 'Explore SGP web tool pricing examples, payment options and ongoing management. See how projects are scoped and get a quote for the work your business needs.',
+    title: 'Automation Pricing & £50 Healthcheck | SGP Digital Solutions',
+    description: 'Start with a £50 workflow healthcheck. Explore scoped automation builds, ongoing support and separate web-tool payment examples from SGP Digital Solutions.',
   },
   '/portfolio': {
     title: 'Client Work & Case Studies | SGP Digital Solutions',

@@ -1,282 +1,98 @@
-import SiteIcon from '@/components/SiteIcon';
+import Link from 'next/link';
 import SitePage from '@/components/SitePage';
 import BrochureDownload from '@/components/BrochureDownload';
-import Link from 'next/link';
+import HealthcheckOffer from '@/components/healthcheck/HealthcheckOffer';
 
 const services = [
   {
-    title: 'Website Building',
-    description: 'When your current website looks like it was designed in 2003... and not in a cool retro way',
-    features: [
-      'Your website takes longer to load than a Windows 95 startup',
-      'People squint at your site on mobile like they\'re reading hieroglyphics',
-      'You\'re still telling people to "visit your Facebook page" instead',
-      'Your contact form has been broken for 6 months and nobody told you',
-      'You DIY\'d it and now it looks like a ransom note',
-      'Competitors are stealing your customers with their fancy websites',
-    ],
-    color: 'sgp-green',
-    bgColor: 'bg-sgp-green/5',
-    borderColor: 'border-sgp-green/20',
-    textColor: 'text-sgp-green',
-    category: 'Website Design',
+    href: '/business-automation', title: 'Business automation',
+    description: 'Join up the tasks your team repeats, so information moves without another round of copying, chasing and retyping.',
+    examples: ['Scheduled reports and reminders', 'Customer enquiries and onboarding', 'Connected records and handovers'],
   },
   {
-    title: 'Bespoke WebTools',
-    description: 'If you need a thing but that thing doesn\'t exist (yet)',
-    features: [
-      'You\'ve searched Google for "tool to do X" and found nothing useful',
-      'You need a web app but it\'s too specific for anyone else to have built',
-      'Your team needs a shared tool that works in browsers',
-      'You want something custom but don\'t want to install software',
-      'You\'ve thought "someone should make a tool that..." more than once',
-      'You need a calculator/converter/generator that does exactly what YOU need',
-    ],
-    color: 'amber-500',
-    bgColor: 'bg-sgp-green/5',
-    borderColor: 'border-sgp-green/20',
-    textColor: 'text-sgp-green',
-    category: 'Bespoke WebTools',
+    href: '/microsoft-365-automation', title: 'Microsoft 365 automation',
+    description: 'Use Power Automate to connect Forms, SharePoint, Teams and Excel around the way your business works.',
+    examples: ['Forms that update shared records', 'Approval requests and Teams notifications', 'Regular summaries from your business data'],
   },
   {
-    title: 'Automation',
-    description: 'When you\'re copy-pasting data like it\'s your full-time job (because it basically is)',
-    features: [
-      'You\'re doing the same mind-numbing task 47 times a day',
-      'Your "system" is actually 12 different spreadsheets held together with hope',
-      'You know every keyboard shortcut but still feel like a robot',
-      'Your browser has 47 tabs open for "research" that\'s actually data entry',
-      'You dream about a magical button that just "does the thing"',
-      'You\'ve said "there has to be a better way" more than 10 times this week',
-    ],
-    color: 'red-500',
-    bgColor: 'bg-sgp-green/5',
-    borderColor: 'border-sgp-green/20',
-    textColor: 'text-sgp-green',
-    category: 'Automation',
+    href: '/expense-approval-automation', title: 'Expense approval automation',
+    description: 'Keep receipts, claim details and approval decisions together, with a clear route from submission to finance.',
+    examples: ['Receipt capture and claim submission', 'Routing to the right approver', 'Status updates and finance handovers'],
   },
-  {
-    title: 'Integration',
-    description: 'When your software plays together about as well as cats and dogs',
-    features: [
-      'You\'re manually copying data between 5 different systems daily',
-      'Your team has a "system" that\'s actually just organized chaos',
-      'You\'re paying for software that doesn\'t talk to your other software',
-      'Someone\'s job is literally "data transfer specialist"',
-      'You have sticky notes with passwords for 12 different platforms',
-      'Your workflow looks like a Rube Goldberg machine',
-    ],
-    color: 'cyan-500',
-    bgColor: 'bg-sgp-green/5',
-    borderColor: 'border-sgp-green/20',
-    textColor: 'text-sgp-green',
-    category: 'Integration',
-  },
-  {
-    title: 'App Development',
-    description: 'For when you need something fancier than a website but less commitment than a relationship',
-    features: [
-      'Your customers keep asking "do you have an app for that?"',
-      'You want to be on phones but websites feel so... 2010',
-      'Your competition has an app and you\'re jealous',
-      'You need offline functionality (because WiFi isn\'t everywhere)',
-      'You want push notifications without being annoying',
-      'You dream of app store glory and passive income',
-    ],
-    color: 'sgp-green',
-    bgColor: 'bg-sgp-green/5',
-    borderColor: 'border-sgp-green/20',
-    textColor: 'text-sgp-green',
-    category: 'App Development',
-    comingSoon: true,
-  },
+];
+
+const steps = [
+  { title: 'Understand one process', description: 'We look at what happens now, where time is lost and which decisions need a person. Start with a £50 healthcheck if you need help choosing the next step.' },
+  { title: 'Agree the work and price', description: 'We define the scope, tools, costs and delivery plan before a build starts. Any software subscriptions or ongoing support are discussed separately.' },
+  { title: 'Build, test and hand over', description: 'We test the workflow, including exceptions and approvals, then give you a walkthrough and documentation. Ongoing support is agreed around your needs.' },
 ];
 
 export default function ServicesPage() {
   return (
     <SitePage>
-      {/* Header */}
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="site-eyebrow">PRACTICAL DIGITAL SOLUTIONS</p>
-            <h1 className="text-6xl font-bold text-white mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-white/80 mb-12 leading-relaxed">
-              Less repetitive admin, clearer websites and tools that fit the way you work. Explore practical digital services for your business.
-            </p>
-            <BrochureDownload className="btn btn-outline" />
+      <section>
+        <div className="container">
+          <p className="site-eyebrow">PRACTICAL AUTOMATION FOR SMALL BUSINESSES</p>
+          <h1>Less repetitive admin.<br />More time for your business.</h1>
+          <p className="text-xl mb-8 max-w-3xl">We build business automation and Microsoft 365 workflows around the tools you use. From reports and reminders to expenses and approvals, start with the process that is slowing you down.</p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/admin-workflow-healthcheck" className="btn btn-primary">Start with the £50 healthcheck</Link>
+            <Link href="/contact" className="btn btn-outline">Discuss an automation project</Link>
           </div>
         </div>
       </section>
-
-      {/* Services Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-6">Business automation, explained.</h2>
-          <p className="mb-8 max-w-3xl">Start with the work that is slowing you down. See how we can help with everyday admin, your Microsoft tools or expense claims.</p>
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[
-              { href: '/business-automation', title: 'Business automation', description: 'Connect reporting, reminders and handovers so your team spends less time repeating the same steps.' },
-              { href: '/microsoft-365-automation', title: 'Microsoft 365 automation', description: 'Bring Forms, SharePoint, Teams and Excel into a shared workflow with Power Automate.' },
-              { href: '/expense-approval-automation', title: 'Expense approval automation', description: 'Keep receipts, claim details and decisions together, with a clear route from submission to finance.' },
-            ].map(service => <article key={service.href} className="rounded-xl border border-white/10 p-8">
-              <h3 className="mb-4">{service.title}</h3><p className="mb-6">{service.description}</p>
-              <Link href={service.href} className="text-terminal-green underline underline-offset-4">Explore {service.title.toLowerCase()} →</Link>
-            </article>)}
+      <section aria-labelledby="automation-services-title">
+        <div className="container">
+          <h2 id="automation-services-title" className="mb-4">What would you like to simplify?</h2>
+          <p className="max-w-3xl mb-10">Choose a starting point. Each workflow is scoped around your process, the systems involved and the people who need to use it.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.map(service => (
+              <article key={service.href} className="rounded-xl border border-white/10 p-8 flex flex-col">
+                <h3 className="mb-4">{service.title}</h3><p className="mb-6">{service.description}</p>
+                <ul className="space-y-3 mb-8 text-white/80">
+                  {service.examples.map(example => <li key={example} className="flex gap-3"><span className="text-sgp-green" aria-hidden="true">✓</span>{example}</li>)}
+                </ul>
+                <Link href={service.href} className="mt-auto text-sgp-green underline underline-offset-4">Explore {service.title.toLowerCase()} →</Link>
+              </article>
+            ))}
           </div>
-          <h2 className="mb-8">More ways we can help.</h2>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className={`relative ${service.bgColor} rounded-xl border ${service.borderColor} p-8 hover:border-opacity-50 transition-all duration-300 group`}
-                >
-                  {service.comingSoon && (
-                    <div className="absolute -top-3 -right-3 z-10">
-                      <span className="bg-sgp-green text-black px-3 py-1 rounded-full text-xs font-bold">
-                        Coming Soon
-                      </span>
-                    </div>
-                  )}
-                  
-                  <div className="mb-6">
-                    <h3 className={`text-2xl font-bold ${service.textColor} mb-3`}>
-                      {service.title}
-                    </h3>
-                    <p className="text-white/70 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="text-white font-semibold mb-3">You Know You Need This If:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start text-white/70">
-                          <svg
-                            className={`w-4 h-4 ${service.textColor} mr-2 mt-0.5 flex-shrink-0`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Link
-                      href={`/portfolio?category=${encodeURIComponent(service.category)}`}
-                      className={`flex-1 text-center px-4 py-2 ${service.textColor} border ${service.borderColor} rounded-full hover:bg-white/5 transition-colors text-sm font-medium`}
-                    >
-                      View Client Work
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="flex-1 text-center px-4 py-2 bg-sgp-green text-black rounded-full hover:bg-sgp-green/90 transition-colors text-sm font-medium"
-                    >
-                      Get Started
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="mt-8"><BrochureDownload className="btn btn-outline" /></div>
         </div>
       </section>
-
-      {/* Process Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-12 text-center">
-              Our Development Process
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[
-                {
-                  step: 1,
-                  title: 'Discovery',
-                  description: 'We analyze your needs and goals to understand your requirements.',
-                  icon: '🔍',
-                },
-                {
-                  step: 2,
-                  title: 'Planning',
-                  description: 'We create a detailed technical plan tailored to your objectives.',
-                  icon: '📋',
-                },
-                {
-                  step: 3,
-                  title: 'Development',
-                  description: 'Our team builds your solution with precision and expertise.',
-                  icon: '⚡',
-                },
-                {
-                  step: 4,
-                  title: 'Launch',
-                  description: 'We ensure a smooth launch and provide ongoing support.',
-                  icon: '🚀',
-                },
-              ].map((step, index) => (
-                <div
-                  key={index}
-                  className="bg-black/40 rounded-xl border border-white/10 p-6 text-center hover:border-sgp-green/30 transition-colors"
-                >
-                  <div className="flex justify-center mb-6"><SiteIcon symbol={step.icon} /></div>
-                  <div className="bg-sgp-green text-black w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-4 text-sm font-bold">
-                    {step.step}
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">
-                    {step.title}
-                  </h3>
-                  <p className="text-white/70 text-sm leading-relaxed">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+      <section aria-labelledby="services-healthcheck-title">
+        <div className="container"><HealthcheckOffer id="services-healthcheck-title" /></div>
+      </section>
+      <section aria-labelledby="process-title">
+        <div className="container">
+          <h2 id="process-title" className="mb-10">From a recurring task to a working solution.</h2>
+          <ol className="grid md:grid-cols-3 gap-8">
+            {steps.map((step, index) => (
+              <li key={step.title} className="border-t border-white/20 pt-6">
+                <p className="site-eyebrow">0{index + 1}</p><h3 className="mb-3">{step.title}</h3><p>{step.description}</p>
+              </li>
+            ))}
+          </ol>
+          <Link href="/pricing" className="btn btn-outline mt-8">See pricing and payment options</Link>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-black/40 rounded-xl border border-white/10 p-12">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Ready to Transform Your Business?
-              </h2>
-              <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-                Tell us what you need a hand with. We’ll help you work out a sensible next step and agree the scope before we start.
-              </p>
-              <div className="flex justify-center gap-4 flex-wrap">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3 bg-sgp-green text-black font-medium rounded-full hover:bg-sgp-green/90 transition-colors"
-                >
-                  Get Started
-                </Link>
-                <Link
-                  href="/portfolio"
-                  className="px-8 py-3 border border-sgp-green text-sgp-green font-medium rounded-full hover:bg-sgp-green hover:text-black transition-colors"
-                >
-                  View Our Clients
-                </Link>
-              </div>
-            </div>
+      <section aria-labelledby="evidence-title">
+        <div className="container grid md:grid-cols-2 gap-10 items-start">
+          <div><p className="site-eyebrow">AUTOMATION IN PRACTICE</p><h2 id="evidence-title">Over 3,000 records.<br />Recovered in around three hours.</h2></div>
+          <div><p className="mb-6">A business needed important information from an older system. We built an automated extraction to recover the records without copying each one by hand.</p><Link href="/portfolio/database-scrape-tool" className="text-sgp-green underline underline-offset-4">Read the records recovery case study →</Link></div>
+        </div>
+      </section>
+      <section aria-labelledby="other-services-title">
+        <div className="container">
+          <p className="site-eyebrow">BEYOND AUTOMATION</p><h2 id="other-services-title" className="mb-8">Websites and tools that support your business.</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <article className="rounded-xl border border-white/10 p-8">
+              <h3 className="mb-3">Website design</h3><p className="mb-6">A clear, mobile-friendly website that explains your services and makes it easy for customers to enquire. We also help with updates to an existing site.</p>
+              <Link href="/websites" className="text-sgp-green underline underline-offset-4">Explore website design →</Link>
+            </article>
+            <article className="rounded-xl border border-white/10 p-8">
+              <h3 className="mb-3">Bespoke web tools</h3><p className="mb-6">A shared browser-based tool for a job your existing software does not cover. We agree the functions, access and support your team needs before building.</p>
+              <Link href="/contact" className="text-sgp-green underline underline-offset-4">Discuss a bespoke web tool →</Link>
+            </article>
           </div>
         </div>
       </section>

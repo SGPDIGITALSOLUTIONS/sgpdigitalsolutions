@@ -11,9 +11,6 @@ export default function AdminWorkflowHealthcheckPage() {
   return (
     <SitePage>
       <HealthcheckHero />
-      <VideoPlaceholder />
-      <GoblinCards />
-      <BeforeAfterTable />
       <HealthcheckSummary />
 
       <section
@@ -31,6 +28,9 @@ export default function AdminWorkflowHealthcheckPage() {
           </div>
         </div>
       </section>
+      <GoblinCards />
+      <BeforeAfterTable />
+      <VideoPlaceholder />
     </SitePage>
   );
 }

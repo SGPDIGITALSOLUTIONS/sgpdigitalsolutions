@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import HealthcheckGraphic from './HealthcheckGraphic';
-import { clockCaption, hero, whatThisIs } from '@/lib/healthcheck/content';
+import { clockCaption, hero } from '@/lib/healthcheck/content';
 
 export default function HealthcheckHero() {
   return (
@@ -22,20 +22,18 @@ export default function HealthcheckHero() {
             <p className="font-terminal-mono text-terminal-green font-bold mb-4">
               {hero.tagline.join(' ')}
             </p>
-            <p className="text-xl font-black text-terminal-green font-terminal-mono mb-2">
-              {whatThisIs.aim}
-            </p>
             <p className="site-price text-2xl font-black text-terminal-yellow font-terminal-mono mb-8">
               {hero.price} healthcheck
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="#express-interest" className="btn btn-primary">
-                Express Interest
+                Request my £50 healthcheck
               </Link>
               <Link href="#examples" className="btn btn-secondary">
                 See Examples
               </Link>
             </div>
+            <p className="text-sm mt-6">Session length and turnaround agreed when booking. Any build work is quoted separately.</p>
           </div>
           <div className="text-center">
             <div className="neo-terminal-element bg-terminal-dark border-4 border-terminal-green rounded-neo p-8 inline-block">

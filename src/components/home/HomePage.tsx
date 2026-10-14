@@ -114,8 +114,8 @@ export default function HomePage() {
             <div className={styles.healthcheck}>
               <div className={styles.healthcheckPrice}><span>A SIMPLE STARTING POINT</span><strong>£50</strong><span>Admin &amp; Workflow Healthcheck</span></div>
               <div><h2 id="healthcheck-title">Start with one process.</h2>
-                <p>Not sure what to automate? Our healthcheck reviews one admin-heavy process and identifies practical next steps before you commit to a bigger build.</p>
-                <Link href="/admin-workflow-healthcheck" className={styles.textLink}>Explore the healthcheck <AutomationIcon name="arrow" /></Link></div>
+                <p>For £50, we review one admin-heavy process, identify where time is being lost and recommend practical next steps. Session length and turnaround are agreed when booking; any build is quoted separately.</p>
+                <Link href="/admin-workflow-healthcheck" className={styles.primaryButton}>Start with the £50 healthcheck <AutomationIcon name="arrow" /></Link></div>
             </div>
             <div className={styles.otherServices}>
               <div><p className={styles.eyebrow}>BEYOND AUTOMATION</p><h2>Need something else?</h2><p>We also build the digital tools around your business.</p></div>

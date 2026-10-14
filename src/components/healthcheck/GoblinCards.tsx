@@ -24,7 +24,7 @@ export default function GoblinCards() {
                 {goblin.description}
               </p>
               <p className="text-terminal-cyan text-xs font-terminal-mono uppercase mb-1">
-                What I do about it
+                What we can help with
               </p>
               <p className="text-terminal-white/90 text-sm leading-relaxed">
                 {goblin.help}

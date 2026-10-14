@@ -1,17 +1,17 @@
 export const healthcheckMeta = {
   title: 'Admin & Workflow Healthcheck | SGP Digital Solutions',
   description:
-    'A practical £50 admin and workflow healthcheck for small businesses. Find repetitive admin, simplify messy processes, and discover what could be automated. No jargon. No nonsense.',
+    'Review one admin-heavy process for £50. Identify wasted time, opportunities to simplify or automate, and practical next steps. Request your workflow healthcheck.',
 };
 
 export const hero = {
   title: 'Admin & Workflow Healthcheck',
-  subtitle: 'For when your admin has started taking the piss',
+  subtitle: 'ONE PROCESS. CLEAR NEXT STEPS. £50.',
   intro: [
-    'Your business probably has at least one process that works… technically — but it also involves copy-paste, chasing people, spreadsheets, and quiet despair.',
-    'The £50 healthcheck is a focused review of one admin-heavy process: what’s slow, what’s repeated, what relies on memory, and what could be simplified or automated.',
+    'Choose one task that keeps taking time out of your week: copying information, chasing approvals, rebuilding a report or keeping track of a handover.',
+    'For £50, we review how that process works, identify where time is being lost and recommend practical ways to simplify or automate it.',
   ],
-  tagline: ['No jargon.', 'No nonsense.', 'No printers.'],
+  tagline: ['One focused review.', 'Practical recommendations.'],
   price: '£50',
 };
 
@@ -20,24 +20,24 @@ export const video = {
   hint: 'Not sure what this is? Watch this first.',
   placeholderNote: 'Video coming soon — a short intro from Steve.',
   openingLine:
-    'If your business has a process that only works because someone remembers to do seven tiny annoying things in the correct order, this is probably for you.',
+    'Start with the process your team keeps chasing. We will help you work out a clearer way forward.',
 };
 
 export const whatThisIs = {
   title: 'What this is',
   paragraphs: [
-    'This is a practical review of a process, admin task, workflow, or recurring business faff that is taking more time than it should.',
-    'It might be something small but annoying. It might be something important that keeps going wrong. It might be a spreadsheet that has gained too much power.',
+    'This is a practical review of one recurring admin task or workflow that is taking more time than it should.',
+    'We look at the steps, tools and handovers involved and identify a manageable next step.',
   ],
-  aim: 'Find the faff. Explain the faff. Reduce the faff.',
+  aim: 'Understand the work. Find the next step.',
 };
 
 export const workflowGoblinsSection = {
-  title: 'Workflow goblins I help with',
+  title: 'Which process is slowing you down?',
   intro:
-    'The workflow goblin is rarely one big problem — it’s usually 14 tiny annoying ones in a trench coat. These are the usual suspects, and the sort of thing I untangle:',
+    'You do not need a technical brief. Start with something your team repeats, checks or chases regularly.',
   closing:
-    'Basically, if a human is doing the same boring thing over and over again, there is a decent chance a computer should be doing at least part of it quietly in the background.',
+    'The recommendation might be a simpler process, better use of an existing tool or an automation. We look at what fits the work.',
 };
 
 export type BeforeAfterRow = {
@@ -47,7 +47,7 @@ export type BeforeAfterRow = {
 };
 
 export const examplesIntro =
-  'Real admin problems we’ve fixed — no client names, just the faff and what changed.';
+  'Examples from previous implementation projects. These show what a later build can involve; implementation is quoted separately from the £50 review.';
 
 export const beforeAfter: BeforeAfterRow[] = [
   {
@@ -76,7 +76,7 @@ export const beforeAfter: BeforeAfterRow[] = [
     before:
       'Data moved by hand — one record at a time — from ~800 clients and ~3,000 pieces of information. Weeks of copy-paste.',
     after:
-      'A custom program that maps, extracts, and formats everything into the spreadsheet layout they needed — hours instead of a soul-destroying slog.',
+      'A custom program mapped, extracted and formatted the information into the spreadsheet layout they needed, completing the work in hours.',
   },
 ];
 
@@ -90,76 +90,76 @@ export type WorkflowGoblin = {
 export const workflowGoblins: WorkflowGoblin[] = [
   {
     id: 'copy-paste',
-    title: 'The Copy-Paste Goblin',
+    title: 'Repeated data entry',
     description:
-      'This one appears when the same information has to be typed into multiple places. Usually found near spreadsheets, CRMs, inboxes, and quiet despair.',
+      'The same details are typed into a form, a spreadsheet and another system, creating extra work and opportunities for mistakes.',
     help: 'Form submissions, moving data between systems, and cutting out duplicate entry.',
   },
   {
     id: 'spreadsheet',
-    title: 'The Spreadsheet Goblin',
+    title: 'Spreadsheets and trackers',
     description:
-      'At first, it was “just a simple tracker”. Now it runs half the business and nobody knows what Column AF does.',
+      'A useful tracker has become difficult to maintain, with manual updates and uncertainty about which version is current.',
     help: 'Spreadsheet clean-up, automation, and reports without the weekly copy-paste ritual.',
   },
   {
     id: 'inbox',
-    title: 'The Inbox Goblin',
+    title: 'Enquiries and inboxes',
     description:
-      'Everything important lives in email threads. Nobody knows the latest version. Someone definitely said “I’ll dig it out” last week.',
+      'Enquiries, documents and next steps are spread across email threads, making follow-up harder to track.',
     help: 'Enquiry handling, email templates, and replies that are not rewritten from scratch every time.',
   },
   {
     id: 'approval',
-    title: 'The Approval Goblin',
+    title: 'Approvals and decisions',
     description:
-      'A decision is needed, but it is buried somewhere between Teams, email, a phone call, and someone saying “I thought Dave approved it.”',
+      'A request is waiting for a decision, but the team cannot easily see who needs to approve it or what happens next.',
     help: 'Approval processes with a clear route and a record of who actually said yes.',
   },
   {
     id: 'manual-report',
-    title: 'The Manual Report Goblin',
+    title: 'Recurring reports',
     description:
-      'Data exists. The report exists. Unfortunately, a human has to suffer between the two.',
+      'The information is available, but someone still copies, checks and formats it into the same report every week.',
     help: 'Reporting that pulls the numbers without someone living in filters and paste-special.',
   },
   {
     id: 'onboarding',
-    title: 'The Onboarding Goblin',
+    title: 'Onboarding and handovers',
     description:
-      'Someone said yes, then everything became a scavenger hunt across emails, attachments, folders, and one person’s memory.',
+      'New clients or colleagues need details, documents and tasks passed between people, with too much depending on memory.',
     help: 'Client and staff onboarding that collects what’s needed — without everyone chasing everyone.',
   },
 ];
 
 export const healthcheckSummary = {
-  title: 'The £50 healthcheck in plain English',
+  title: 'What your £50 covers',
   deliverables: [
-    'A review of what currently happens',
-    'Where time is being wasted',
-    'What could be simplified or automated',
-    'A practical recommendation for what to do next',
+    'A review of how one process currently works',
+    'The points where time is being lost or work repeated',
+    'Opportunities to simplify the steps or automate suitable tasks',
+    'Practical recommendations for what to do next',
   ],
   deliverablesNote:
-    'Not a 47-page corporate report. Plain English on what’s annoying you and what to do about it.',
-  notTitle: 'What this is not',
+    'Session length and turnaround are agreed when booking. The recommendations focus on your chosen process and the tools you use.',
+  notTitle: 'If you decide to take it further',
   notItems: [
-    'A massive software project',
-    'A sales pitch for expensive platforms',
-    'Someone making you feel stupid for having messy admin',
+    'The £50 covers the review and recommendations.',
+    'Any build, software licences or ongoing support are scoped and quoted separately.',
+    'You can decide whether to proceed once you have the recommendations.',
   ],
   stepsTitle: 'What happens next',
   steps: [
-    'You express interest using the form below.',
-    'Natasha will be in touch to arrange the healthcheck and ask a few questions about the process you want looked at.',
-    'Steve reviews the workflow and you get practical recommendations — quick wins called out clearly, bigger fixes explained without the fog.',
+    'Tell us which process you would like reviewed using the form below.',
+    'Natasha will contact you to arrange the healthcheck, confirm the session length and turnaround, and ask about your process.',
+    'Steve reviews the workflow and you receive practical recommendations, with quick wins and any larger improvements explained clearly.',
   ],
 };
 
 export const expressInterest = {
-  title: 'Express interest in the £50 Admin & Workflow Healthcheck',
+  title: 'Request your £50 healthcheck',
   intro:
-    'Think your admin might be quietly robbing you? Complete the form below and Natasha will be in touch to book you in.',
+    'Tell us a little about your business and one process you want to improve. Natasha will contact you to arrange the healthcheck. This is an enquiry; your appointment is confirmed separately.',
 };
 
-export const clockCaption = 'Where did the week go? Ah yes. Manual admin.';
+export const clockCaption = 'Start with the task that keeps taking time out of your week.';

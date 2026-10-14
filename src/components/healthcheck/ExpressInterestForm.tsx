@@ -327,12 +327,11 @@ export default function ExpressInterestForm() {
         type="submit"
         disabled={submitting}
         className="btn btn-primary w-full md:w-auto disabled:opacity-50"
-        aria-label="Let's Find the Faff — Express Interest"
       >
-        {submitting ? 'Sending…' : 'Express Interest'}
+        {submitting ? 'Sending…' : 'Request my £50 healthcheck'}
       </button>
       <p className="text-xs text-terminal-white/50 font-terminal-mono">
-        Alternative: Let&apos;s Find the Faff
+        Natasha will contact you to confirm the arrangements. This form does not take payment.
       </p>
     </form>
   );
