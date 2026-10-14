@@ -6,10 +6,8 @@
 .stories .count { margin: 24px 0 32px; color: #a1afa6; font-size: .75rem; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 .card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; background: #0a0a0a; border: 1px solid #282c2a; border-radius: 5px; }
-.visual { position: relative; aspect-ratio: 16 / 10; background: #101813; overflow: hidden; border-bottom: 1px solid #282c2a; }
-.image { object-fit: contain; object-position: center; }
-.logo { background: #fff; }
-.logo .image { object-fit: contain; padding: 36px; }
+.visual { position: relative; aspect-ratio: 16 / 9; background: #101813; overflow: hidden; border-bottom: 1px solid #282c2a; }
+.image { object-fit: contain; object-position: top; }
 .status { position: absolute; bottom: 16px; left: 16px; background: #000; color: #dcf5e7; border: 1px solid #496451; padding: 7px 12px; border-radius: 3px; font-size: .6875rem; }
 .illustration { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; padding: 32px; text-align: center; background: radial-gradient(ellipse at center, #163a26, #09110c 75%); }
 .illustration svg { width: 72px; height: 72px; color: #00ff88; stroke-width: 1; }

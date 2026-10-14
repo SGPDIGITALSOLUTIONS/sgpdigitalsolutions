@@ -35,12 +35,13 @@ export default function DannysDecoratingProject() {
               </div>
             </div>
 
-            <div className="relative h-96 mb-12 rounded-xl overflow-hidden bg-white/5">
+            <div className="relative aspect-video mb-12 rounded-xl overflow-hidden bg-white/5">
               <Image
-                src="/portfolio/dannys-decorating-hero.png"
-                alt="Danny's Decorating website hero"
+                src="/portfolio/dannys-decorating-homepage.jpg"
+                alt="Homepage screenshot of Danny's Decorating Ltd"
                 fill
-                className="object-cover object-center"
+                className="object-contain object-top"
+                sizes="(max-width: 1152px) 100vw, 1152px"
                 priority
               />
             </div>

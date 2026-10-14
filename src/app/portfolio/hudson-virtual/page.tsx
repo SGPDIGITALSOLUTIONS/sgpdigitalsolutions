@@ -40,12 +40,13 @@ export default function HudsonVirtualProject() {
             </div>
 
             {/* Project Image */}
-            <div className="relative h-96 mb-12 rounded-xl overflow-hidden">
+            <div className="relative aspect-video mb-12 rounded-xl overflow-hidden">
               <Image
-                src="/portfolio/hudsonvirtualfinal.png"
-                alt="Hudson Virtual Business Services Website"
+                src="/portfolio/hudson-virtual-homepage.jpg"
+                alt="Homepage screenshot of Hudson Virtual Business Services"
                 fill
-                className="object-cover"
+                className="object-contain object-top"
+                sizes="(max-width: 1152px) 100vw, 1152px"
                 priority
               />
             </div>
@@ -290,4 +291,4 @@ export default function HudsonVirtualProject() {
       </section>
     </SitePage>
   );
-} 
+}
