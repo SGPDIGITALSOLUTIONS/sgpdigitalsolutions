@@ -10,7 +10,7 @@ const filters = ['All work', 'Websites', 'Less admin', 'Data recovery'] as const
 type Filter = typeof filters[number];
 type Project = {
   id: string; title: string; client: string; need: string; outcome: string;
-  groups: Filter[]; image?: string; imageAlt?: string; logo?: boolean;
+  groups: Filter[]; image?: string; imageAlt?: string;
   illustration?: 'workflow' | 'file'; status?: string;
 };
 
@@ -21,32 +21,32 @@ const projects: Project[] = [
     client: 'Tasha helps business owners get on top of their admin and free up their time.',
     need: 'A clear way to explain her services, show pricing and let people book a conversation.',
     outcome: 'A website that brings services, pricing and appointment booking together in one place.',
-    groups: ['Websites', 'Less admin'], image: '/portfolio/hudsonvirtualfinal.png',
-    imageAlt: 'Hudson Virtual Business Services website',
+    groups: ['Websites', 'Less admin'], image: '/portfolio/hudson-virtual-homepage.jpg',
+    imageAlt: 'Homepage screenshot of Hudson Virtual Business Services',
   },
   {
     id: 'i-care-services', title: 'I Care Service Provider Ltd',
     client: 'A Yorkshire optometry service bringing eye care to people at home.',
     need: 'Help patients find out whether they are covered and access services from home.',
     outcome: 'Online coverage checks, payments and subscriptions, with email and WhatsApp contact options.',
-    groups: ['Websites', 'Less admin'], image: '/portfolio/eyecareproviderlogo.jpg',
-    imageAlt: 'I Care Service Provider logo', logo: true,
+    groups: ['Websites', 'Less admin'], image: '/portfolio/i-care-services-homepage.jpg',
+    imageAlt: 'Homepage screenshot of I Care Service Provider Ltd',
   },
   {
     id: 'dannys-decorating', title: "Danny's Decorating Ltd",
     client: 'A specialist residential decorator working in Kensington and Chelsea.',
     need: 'A website that reflects the care and quality of their work in clients’ homes.',
     outcome: 'Clear service information and a straightforward route to requesting a quotation.',
-    groups: ['Websites'], image: '/portfolio/dannys-decorating-hero.png',
-    imageAlt: "Danny's Decorating website",
+    groups: ['Websites'], image: '/portfolio/dannys-decorating-homepage.jpg',
+    imageAlt: "Homepage screenshot of Danny's Decorating Ltd",
   },
   {
     id: 'heartwood-wellbeing', title: 'Heartwood Wellbeing',
     client: 'Kelly provides holistic companion care for older people and their families.',
     need: 'A welcoming way to explain her approach and the care she offers.',
     outcome: 'A website design that presents her services and approach in a warm, accessible setting.',
-    groups: ['Websites'], image: '/portfolio/heartwoodwellbeing.png',
-    imageAlt: 'Heartwood Wellbeing website design', status: 'In development',
+    groups: ['Websites'], image: '/portfolio/heartwood-wellbeing-homepage.jpg',
+    imageAlt: 'Homepage screenshot of Heartwood Wellbeing', status: 'In development',
   },
   {
     id: 'database-scrape-tool', title: 'A business with records to rescue',
@@ -67,8 +67,8 @@ const projects: Project[] = [
     client: 'Our own website, built to explain how we help businesses with their day-to-day work.',
     need: 'Make our services easy to understand and give visitors a clear place to start.',
     outcome: 'Practical examples, client stories and a direct route to talking through a project.',
-    groups: ['Websites'], image: '/portfolio/sgpdigitalsolutions.png',
-    imageAlt: 'SGP Digital Solutions website project', status: 'Our own website',
+    groups: ['Websites'], image: '/portfolio/sgp-digital-solutions-homepage.jpg',
+    imageAlt: 'Homepage screenshot of SGP Digital Solutions', status: 'Our own website',
   },
 ];
 
@@ -83,7 +83,7 @@ function initialFilter(category: string): Filter {
 function ProjectImage({ project, priority }: { project: Project; priority: boolean }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className={`${styles.visual} ${project.logo ? styles.logo : ''}`}>
+    <div className={styles.visual}>
       {project.image && !failed ? (
         <Image src={project.image} alt={project.imageAlt ?? project.title} fill
           className={styles.image} sizes="(max-width: 767px) 100vw, 50vw"

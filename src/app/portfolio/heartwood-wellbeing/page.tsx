@@ -40,12 +40,13 @@ export default function HeartwoodWellbeingProject() {
             </div>
 
             {/* Project Image */}
-            <div className="relative h-96 mb-12 rounded-xl overflow-hidden">
+            <div className="relative aspect-video mb-12 rounded-xl overflow-hidden">
               <Image
-                src="/portfolio/heartwoodwellbeing.png"
-                alt="Heartwood Wellbeing Website"
+                src="/portfolio/heartwood-wellbeing-homepage.jpg"
+                alt="Homepage screenshot of Heartwood Wellbeing"
                 fill
-                className="object-cover"
+                className="object-contain object-top"
+                sizes="(max-width: 1152px) 100vw, 1152px"
                 priority
               />
             </div>
@@ -247,4 +248,4 @@ export default function HeartwoodWellbeingProject() {
       </section>
     </SitePage>
   );
-} 
+}

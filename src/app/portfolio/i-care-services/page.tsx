@@ -59,13 +59,14 @@ export default function ICareServicesPage() {
               </div>
               
               <div className="flex justify-center lg:justify-end">
-                <div className="relative">
+                <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-lg">
                   <Image
-                    src="/portfolio/eyecareproviderlogo.jpg"
-                    alt="I Care Service Provider Ltd Logo"
-                    width={320}
-                    height={240}
-                    className="rounded-xl shadow-lg object-contain"
+                    src="/portfolio/i-care-services-homepage.jpg"
+                    alt="Homepage screenshot of I Care Service Provider Ltd"
+                    fill
+                    sizes="(max-width: 1023px) 100vw, 424px"
+                    className="object-contain object-top"
+                    priority
                   />
                 </div>
               </div>
