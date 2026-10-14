@@ -3,6 +3,8 @@ import { video } from '@/lib/healthcheck/content';
 const embedUrl = process.env.NEXT_PUBLIC_HEALTHCHECK_VIDEO_URL?.trim();
 
 export default function VideoPlaceholder() {
+  if (!embedUrl) return null;
+
   return (
     <section className="py-14 bg-terminal-dark terminal-section">
       <div className="container max-w-4xl">

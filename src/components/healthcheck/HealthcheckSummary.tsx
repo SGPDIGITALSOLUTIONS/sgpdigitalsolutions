@@ -22,7 +22,7 @@ export default function HealthcheckSummary() {
           <ul className="space-y-2 text-terminal-white/80 text-sm">
             {healthcheckSummary.notItems.map((item) => (
               <li key={item} className="flex items-start gap-2">
-                <span className="text-terminal-pink font-bold">×</span>
+                <span className="text-terminal-pink font-bold" aria-hidden="true">✓</span>
                 {item}
               </li>
             ))}
